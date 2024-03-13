@@ -1,10 +1,9 @@
-package es.deusto.ingenieria.sd.rmi.client;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import es.deusto.ingenieria.sd.rmi.server.IServer;
-import es.deusto.ingenieria.sd.rmi.server.InvalidUser;
+import server.IServer;
+import server.InvalidUser;
 
 public class Client {
 
