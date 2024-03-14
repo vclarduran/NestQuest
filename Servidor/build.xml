@@ -32,8 +32,18 @@
 
     	<!--El DEPENDS significa que primero hara un build y despues ejecutara el server-->
 	
-	<target name="server" depends="build" description="Runs the Server">
-		<java classname="Server" classpath="${classpath}" fork="true">
+	<target name="server-door" depends="build" description="Runs the Server">
+		<java classname="ServerDoor" classpath="${classpath}" fork="true">
+			<jvmarg value="-Djava.rmi.server.codebase=file:${build.dir}/"/>
+			<jvmarg value="-Djava.security.policy=${policy.file}"/>			
+        	<arg value="${server.IP}"/> 
+	 		<arg value="${server.port}"/> 
+			<arg value="${server.Name}"/> 
+        </java>
+    </target>
+
+	<target name="server-book" depends="build" description="Runs the Server">
+		<java classname="ServerBook" classpath="${classpath}" fork="true">
 			<jvmarg value="-Djava.rmi.server.codebase=file:${build.dir}/"/>
 			<jvmarg value="-Djava.security.policy=${policy.file}"/>			
         	<arg value="${server.IP}"/> 

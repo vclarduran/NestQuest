@@ -1,11 +1,10 @@
-
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 import server.IServer;
 import server.InvalidUser;
 
-public class Client {
+public class ClientDoor {
 
 	public static void main(String[] args) {
 		if (args.length != 3) 
