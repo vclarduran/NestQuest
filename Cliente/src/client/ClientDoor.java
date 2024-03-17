@@ -1,12 +1,12 @@
-package es.deusto.ingenieria.sd.rmi.client;
+package client;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import es.deusto.ingenieria.sd.rmi.server.IServer;
-import es.deusto.ingenieria.sd.rmi.server.InvalidUser;
+import server.IServer;
+import server.InvalidUser;
 
-public class ClientBook {
+public class ClientDoor {
 
 	public static void main(String[] args) {
 		if (args.length != 3) 
@@ -35,8 +35,7 @@ public class ClientBook {
 			System.err.println("- Exception running the client: " + e.getMessage());
 			e.printStackTrace();
 		}
-		
-				
+			
 		/**
 		 * Try registering user
 		 */

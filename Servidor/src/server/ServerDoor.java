@@ -1,4 +1,4 @@
-package es.deusto.ingenieria.sd.rmi.server;
+package server;
 
 import java.rmi.Naming;
 import java.rmi.RemoteException;
@@ -8,13 +8,13 @@ import java.rmi.server.UnicastRemoteObject;
 import java.rmi.server.*;
 import java.util.HashMap;
 
-public class ServerBook extends UnicastRemoteObject implements IServer {
+public class ServerDoor extends UnicastRemoteObject implements IServer {
 
 	private static final long serialVersionUID = 1L;
 	private int cont = 0;
 	private HashMap <String, String> registeredUsers = null;
 
-	protected ServerBook() throws RemoteException 
+	protected ServerDoor() throws RemoteException 
 	{
 		super();
 		registeredUsers = new HashMap<String, String> ();
@@ -67,7 +67,7 @@ public class ServerBook extends UnicastRemoteObject implements IServer {
 
 		try 
 		{	
-			IServer objServer = new ServerBook();
+			IServer objServer = new ServerDoor();
 			Registry registry = LocateRegistry.createRegistry((Integer.valueOf(args[1])));
 			//Naming.rebind(name, objServer);
 			registry.rebind(name, objServer);
