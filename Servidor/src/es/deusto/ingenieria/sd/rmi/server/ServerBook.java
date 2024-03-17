@@ -1,3 +1,4 @@
+package es.deusto.ingenieria.sd.rmi.server;
 
 import java.rmi.Naming;
 import java.rmi.RemoteException;
@@ -60,11 +61,12 @@ public class ServerBook extends UnicastRemoteObject implements IServer {
 			System.exit(0);
 		}
 
+
+
 		String name = "//" + args[0] + ":" + args[1] + "/" + args[2];
 
 		try 
 		{	
-			//ESTAS SON LAS IMPORTANTES:
 			IServer objServer = new ServerBook();
 			Registry registry = LocateRegistry.createRegistry((Integer.valueOf(args[1])));
 			//Naming.rebind(name, objServer);

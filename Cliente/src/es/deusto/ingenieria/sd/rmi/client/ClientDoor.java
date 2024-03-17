@@ -1,8 +1,10 @@
+package es.deusto.ingenieria.sd.rmi.client;
+
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import server.IServer;
-import server.InvalidUser;
+import es.deusto.ingenieria.sd.rmi.server.IServer;
+import es.deusto.ingenieria.sd.rmi.server.InvalidUser;
 
 public class ClientDoor {
 
@@ -13,13 +15,14 @@ public class ClientDoor {
 			System.exit(0);
 		}
 
+
+
 		IServer stubServer = null;
 		/**
 		 * Try test message
 		 */
 		try 
 		{
-			//EN LUGAR DE CREAR BUSCA
 			Registry registry = LocateRegistry.getRegistry(((Integer.valueOf(args[1]))));
 			String name = "//" + args[0] + ":" + args[1] + "/" + args[2];
 			//stubServer = (IServer) java.rmi.Naming.lookup(name);
