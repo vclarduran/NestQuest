@@ -13,7 +13,7 @@
 	<property name="policy.file" location="security/java.policy"/>	
 
 	<target name="help">
-		<echo>Usage: ant [build | export | server]</echo>
+		<echo>Usage: ant [build | export | server-door | server-book]</echo>
 	</target>
 	
 	<target name="build" description="Builds the project">

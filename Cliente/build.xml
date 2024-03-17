@@ -19,7 +19,7 @@
     </path>
 	
 	<target name="help">
-		<echo>Usage: ant [build | client]</echo>
+		<echo>Usage: ant [build | client-book | client-door]</echo>
 	</target>	
 	
 	<target name="build" description="Builds the project">

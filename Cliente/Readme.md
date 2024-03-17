@@ -6,5 +6,5 @@ Apache ANT tool must be installed and included in the binaries path of environme
 
 ## Usage
 ```
-ant [build | client]
+ant [build | client-book | client-door]
 ```
