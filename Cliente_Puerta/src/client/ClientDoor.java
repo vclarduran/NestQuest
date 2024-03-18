@@ -39,30 +39,6 @@ public class ClientDoor {
 		/**
 		 * Try registering user
 		 */
-		try
-		{			
-			stubServer.registerUser("Test1", "Test1");
-			System.out.println("* Added user Test1");
-			
-			stubServer.registerUser("Test2", "Test2");
-			System.out.println("* Added user Test2");
-			
-			stubServer.registerUser("Test3", "Test3");
-			System.out.println("* Added user Test3");
-			
-			stubServer.registerUser("Test3", "Test3");
-			System.out.println("* Added user Test3");
-		}
-		catch (InvalidUser iu)
-		{
-			System.err.println("- Exception running the client: " + iu.getErrorMessage());
-		}
-		catch (Exception e)
-		{
-			System.err.println("- Exception running the client: " + e.getMessage());
-		}
-		
-		
 		
 		/**
 		 * Try say message
