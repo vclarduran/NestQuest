@@ -3,6 +3,12 @@ package server;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+
+import objetos.Usuario;
+import objetos.Reserva;
+import objetos.Alojamiento;
+import objetos.PeticionReserva;
 
 public interface IServerBook extends Remote 
 {
@@ -35,7 +41,7 @@ public interface IServerBook extends Remote
 	Reserva reservar(Usuario personaQueReserva, PeticionReserva peticionReserva) throws RemoteException;
 
 	/* OPCIONES */
-	ArrayList<Alojamientos> busquedaOpciones(int horas, int transporte, float presupuesto, int numPersonas, String localizacionActual) throws RemoteException;
+	ArrayList<Alojamiento> busquedaOpciones(int horas, int transporte, float presupuesto, int numPersonas, String localizacionActual) throws RemoteException;
 
 	byte[] rutaOptima(Alojamiento alojamiento, String localizacionActual) throws RemoteException;
 

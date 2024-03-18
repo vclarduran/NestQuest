@@ -4,6 +4,8 @@ package server;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
+import objetos.Reserva;
+
 public interface IServerDoor extends Remote 
 {
 	/**
