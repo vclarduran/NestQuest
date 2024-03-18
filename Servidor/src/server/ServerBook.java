@@ -8,7 +8,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.rmi.server.*;
 import java.util.HashMap;
 
-public class ServerBook extends UnicastRemoteObject implements IServer {
+public class ServerBook extends UnicastRemoteObject implements IServerBook {
 
 	private static final long serialVersionUID = 1L;
 	private int cont = 0;
@@ -67,7 +67,7 @@ public class ServerBook extends UnicastRemoteObject implements IServer {
 
 		try 
 		{	
-			IServer objServer = new ServerBook();
+			IServerBook objServer = new ServerBook();
 			Registry registry = LocateRegistry.createRegistry((Integer.valueOf(args[1])));
 			//Naming.rebind(name, objServer);
 			registry.rebind(name, objServer);
