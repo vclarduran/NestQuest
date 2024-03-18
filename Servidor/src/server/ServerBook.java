@@ -9,9 +9,9 @@ import java.rmi.server.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.io.IOException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -29,19 +29,17 @@ public class ServerBook extends UnicastRemoteObject implements IServerBook {
 
 	private static final long serialVersionUID = 1L;
 	private int cont = 0;
-	private HashMap <String, String> registeredUsers = null;
+	private HashMap<String, String> registeredUsers = null;
 
 	@Override
-	public String sayHello() 
-	{
+	public String sayHello() {
 		cont++;
 		System.out.println(" * Client number: " + cont);
 		return "Hello World!";
 	}
-	
+
 	@Override
-	public String sayMessage(String login, String password, String message) throws RemoteException, InvalidUser
-	{
+	public String sayMessage(String login, String password, String message) throws RemoteException, InvalidUser {
 		if (registeredUsers.containsValue(login)) {
 
 			if (registeredUsers.get(login).contentEquals(password)) {
@@ -55,59 +53,55 @@ public class ServerBook extends UnicastRemoteObject implements IServerBook {
 		}
 	}
 
-	
-	
-
 	public static void main(String[] args) {
 		if (args.length != 3) {
 			System.out.println("usage: java [policy] [codebase] server.Server [host] [port] [server]");
 			System.exit(0);
 		}
 
-
-
 		String name = "//" + args[0] + ":" + args[1] + "/" + args[2];
 
-		try 
-		{	
+		try {
 			IServerBook objServer = new ServerBook();
 			Registry registry = LocateRegistry.createRegistry((Integer.valueOf(args[1])));
 			registry.rebind(name, objServer);
-			System.out.println("* Server '" + name + "' active and waiting...");			
-		} 
-		catch (Exception e) 
-		{
+			System.out.println("* Server '" + name + "' active and waiting...");
+			String s = objServer.getApartamentos();
+			System.out.println(s);
+
+		} catch (Exception e) {
 			System.err.println("- Exception running the server: " + e.getMessage());
 			e.printStackTrace();
 		}
 	}
 
-
 	@Override
-	public String getApartamentos(String url, String token) throws RemoteException, InvalidUser {
-		try{
+	public String getApartamentos() throws RemoteException, InvalidUser {
+		String respuesta = null;
+		String url = "https://ds2324.arambarri.eus/api/habitaciones";
+		String token = "0518ee96193abf0dca7b3a46591653eb2b162f3fb2dd6fa681b65b97e3e00243187a1b6839aac73946715fb62719b12a1eb14afc36018935b935c2dbf293448fc98a5cde5a219fc208a3db97489b2c2c479825f212d87658ff3b369e4951b0b3f101ac8d52330262e60846ae80b45b6799c69371e4f47a548053137ada4ec6e5";
+
+		try {
 			HttpRequest request = HttpRequest.newBuilder()
-			.uri(new URI(url))
-			.header("Autorizartion", "Bearer" + token)
-			.build();
+					.uri(new URI(url))
+					.header("Authorization", "Bearer " + token)
+					.GET()
+					.build();
 
-			HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+			HttpResponse<String> response = HttpClient.newHttpClient().send(request,
+					HttpResponse.BodyHandlers.ofString());
 
-			if(response.statusCode() ==200){
+			if (response.statusCode() == 200) {
 				respuesta = response.body();
 				return respuesta;
-			}else{
+			} else {
 				System.out.println("error --> Codigo de estado :" + response.statusCode());
 			}
-		}catch(IOException | InterruptedException | URISyntaxException e){
-			System.out.println("Error al hacer la solucitud -->" + e.getMessage());
-			respuesta=null;
+		} catch (IOException | InterruptedException | URISyntaxException e) {
+			System.out.println("Error al hacer la solicitud -->" + e.getMessage());
 		}
 		return respuesta;
 	}
-
-
-
 
 	@Override
 	public Usuario comprobarUsusuario(String nombre, String contrasenya) throws RemoteException, InvalidUser {
@@ -139,5 +133,5 @@ public class ServerBook extends UnicastRemoteObject implements IServerBook {
 		// TODO Auto-generated method stub
 		throw new UnsupportedOperationException("Unimplemented method 'rutaOptima'");
 	}
-	
+
 }

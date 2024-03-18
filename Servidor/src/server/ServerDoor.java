@@ -14,7 +14,7 @@ import objetos.PeticionReserva;
 import objetos.Reserva;
 import objetos.Usuario;
 
-public class ServerDoor extends UnicastRemoteObject implements IServerBook {
+public class ServerDoor extends UnicastRemoteObject implements IServerDoor {
 
 	private static final long serialVersionUID = 1L;
 	private int cont = 0;
@@ -50,37 +50,6 @@ public class ServerDoor extends UnicastRemoteObject implements IServerBook {
 		}
 	}
 
-	@Override
-	public Usuario comprobarUsusuario(String nombre, String contrasenya) throws RemoteException, InvalidUser {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'comprobarUsusuario'");
-	}
-
-	@Override
-	public Usuario crearUsuario(String nombre, String contrasenya, String email) throws RemoteException, InvalidUser {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'crearUsuario'");
-	}
-
-	@Override
-	public Reserva reservar(Usuario personaQueReserva, PeticionReserva peticionReserva) throws RemoteException {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'reservar'");
-	}
-
-	@Override
-	public ArrayList<Alojamiento> busquedaOpciones(int horas, int transporte, float presupuesto, int numPersonas,
-			String localizacionActual) throws RemoteException {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'busquedaOpciones'");
-	}
-
-	@Override
-	public byte[] rutaOptima(Alojamiento alojamiento, String localizacionActual) throws RemoteException {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'rutaOptima'");
-	}
-	
 
 	public static void main(String[] args) {
 		if (args.length != 3) {
@@ -92,7 +61,7 @@ public class ServerDoor extends UnicastRemoteObject implements IServerBook {
 
 		try 
 		{	
-			IServerBook objServer = new ServerDoor();
+			IServerDoor objServer = new ServerDoor();
 			Registry registry = LocateRegistry.createRegistry((Integer.valueOf(args[1])));
 			//Naming.rebind(name, objServer);
 			registry.rebind(name, objServer);
@@ -103,6 +72,12 @@ public class ServerDoor extends UnicastRemoteObject implements IServerBook {
 			System.err.println("- Exception running the server: " + e.getMessage());
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public Reserva comprobarReserva(int idAlojamiento, int idReserva) throws RemoteException {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'comprobarReserva'");
 	}
 
 	
