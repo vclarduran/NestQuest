@@ -29,7 +29,8 @@ public interface IServerBook extends Remote
 	 * @throws RemoteException
 	 */
 	String sayMessage(String login, String password, String message) throws RemoteException, InvalidUser;
-	
+	/*API APARTMENTOS*/
+	String getApartamentos(String url, String token) throws RemoteException, InvalidUser;
 
 	/* GESTION USUARIO */
 	Usuario comprobarUsusuario (String nombre, String contrasenya) throws RemoteException, InvalidUser;

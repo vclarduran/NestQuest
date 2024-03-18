@@ -9,6 +9,13 @@ import java.rmi.server.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.io.IOException;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
 import objetos.Alojamiento;
 import objetos.PeticionReserva;
 import objetos.Reserva;
@@ -74,6 +81,33 @@ public class ServerBook extends UnicastRemoteObject implements IServerBook {
 			e.printStackTrace();
 		}
 	}
+
+
+	@Override
+	public String getApartamentos(String url, String token) throws RemoteException, InvalidUser {
+		try{
+			HttpRequest request = HttpRequest.newBuilder()
+			.uri(new URI(url))
+			.header("Autorizartion", "Bearer" + token)
+			.build();
+
+			HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+
+			if(response.statusCode() ==200){
+				respuesta = response.body();
+				return respuesta;
+			}else{
+				System.out.println("error --> Codigo de estado :" + response.statusCode());
+			}
+		}catch(IOException | InterruptedException | URISyntaxException e){
+			System.out.println("Error al hacer la solucitud -->" + e.getMessage());
+			respuesta=null;
+		}
+		return respuesta;
+	}
+
+
+
 
 	@Override
 	public Usuario comprobarUsusuario(String nombre, String contrasenya) throws RemoteException, InvalidUser {
