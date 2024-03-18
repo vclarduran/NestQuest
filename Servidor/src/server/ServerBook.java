@@ -6,19 +6,23 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.server.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 
+import objetos.Alojamiento;
+import objetos.PeticionReserva;
+import objetos.Reserva;
+import objetos.Usuario;
+
 public class ServerBook extends UnicastRemoteObject implements IServerBook {
+
+	protected ServerBook() throws RemoteException {
+		super();
+	}
 
 	private static final long serialVersionUID = 1L;
 	private int cont = 0;
 	private HashMap <String, String> registeredUsers = null;
-
-	protected ServerBook() throws RemoteException 
-	{
-		super();
-		registeredUsers = new HashMap<String, String> ();
-	}
 
 	@Override
 	public String sayHello() 
@@ -44,15 +48,7 @@ public class ServerBook extends UnicastRemoteObject implements IServerBook {
 		}
 	}
 
-	@Override
-	public void registerUser(String login, String password) throws RemoteException, InvalidUser 
-	{
-		if ( registeredUsers.containsValue(login) == false ) {
-			registeredUsers.put(login, password);			
-		} else {
-			throw new InvalidUser("User name " + login + " is already in the database");
-		}		
-	}
+	
 	
 
 	public static void main(String[] args) {
@@ -69,7 +65,6 @@ public class ServerBook extends UnicastRemoteObject implements IServerBook {
 		{	
 			IServerBook objServer = new ServerBook();
 			Registry registry = LocateRegistry.createRegistry((Integer.valueOf(args[1])));
-			//Naming.rebind(name, objServer);
 			registry.rebind(name, objServer);
 			System.out.println("* Server '" + name + "' active and waiting...");			
 		} 
@@ -78,6 +73,37 @@ public class ServerBook extends UnicastRemoteObject implements IServerBook {
 			System.err.println("- Exception running the server: " + e.getMessage());
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public Usuario comprobarUsusuario(String nombre, String contrasenya) throws RemoteException, InvalidUser {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'comprobarUsusuario'");
+	}
+
+	@Override
+	public Usuario crearUsuario(String nombre, String contrasenya, String email) throws RemoteException, InvalidUser {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'crearUsuario'");
+	}
+
+	@Override
+	public Reserva reservar(Usuario personaQueReserva, PeticionReserva peticionReserva) throws RemoteException {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'reservar'");
+	}
+
+	@Override
+	public ArrayList<Alojamiento> busquedaOpciones(int horas, int transporte, float presupuesto, int numPersonas,
+			String localizacionActual) throws RemoteException {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'busquedaOpciones'");
+	}
+
+	@Override
+	public byte[] rutaOptima(Alojamiento alojamiento, String localizacionActual) throws RemoteException {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'rutaOptima'");
 	}
 	
 }

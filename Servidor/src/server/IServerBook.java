@@ -36,7 +36,6 @@ public interface IServerBook extends Remote
 
 	Usuario crearUsuario (String nombre, String contrasenya, String email) throws RemoteException, InvalidUser;
 
-
 	/* NUEVAS RESERVAS */
 	Reserva reservar(Usuario personaQueReserva, PeticionReserva peticionReserva) throws RemoteException;
 

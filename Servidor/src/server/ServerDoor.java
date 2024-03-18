@@ -6,7 +6,13 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.server.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+
+import objetos.Alojamiento;
+import objetos.PeticionReserva;
+import objetos.Reserva;
+import objetos.Usuario;
 
 public class ServerDoor extends UnicastRemoteObject implements IServerBook {
 
@@ -45,13 +51,34 @@ public class ServerDoor extends UnicastRemoteObject implements IServerBook {
 	}
 
 	@Override
-	public void registerUser(String login, String password) throws RemoteException, InvalidUser 
-	{
-		if ( registeredUsers.containsValue(login) == false ) {
-			registeredUsers.put(login, password);			
-		} else {
-			throw new InvalidUser("User name " + login + " is already in the database");
-		}		
+	public Usuario comprobarUsusuario(String nombre, String contrasenya) throws RemoteException, InvalidUser {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'comprobarUsusuario'");
+	}
+
+	@Override
+	public Usuario crearUsuario(String nombre, String contrasenya, String email) throws RemoteException, InvalidUser {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'crearUsuario'");
+	}
+
+	@Override
+	public Reserva reservar(Usuario personaQueReserva, PeticionReserva peticionReserva) throws RemoteException {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'reservar'");
+	}
+
+	@Override
+	public ArrayList<Alojamiento> busquedaOpciones(int horas, int transporte, float presupuesto, int numPersonas,
+			String localizacionActual) throws RemoteException {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'busquedaOpciones'");
+	}
+
+	@Override
+	public byte[] rutaOptima(Alojamiento alojamiento, String localizacionActual) throws RemoteException {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'rutaOptima'");
 	}
 	
 
@@ -60,8 +87,6 @@ public class ServerDoor extends UnicastRemoteObject implements IServerBook {
 			System.out.println("usage: java [policy] [codebase] server.Server [host] [port] [server]");
 			System.exit(0);
 		}
-
-
 
 		String name = "//" + args[0] + ":" + args[1] + "/" + args[2];
 
@@ -79,5 +104,7 @@ public class ServerDoor extends UnicastRemoteObject implements IServerBook {
 			e.printStackTrace();
 		}
 	}
+
+	
 	
 }
