@@ -40,8 +40,6 @@ public class ServerBook extends UnicastRemoteObject implements IServerBook {
 			Registry registry = LocateRegistry.createRegistry((Integer.valueOf(args[1])));
 			registry.rebind(name, objServer);
 			System.out.println("* Server '" + name + "' active and waiting...");
-			// String s = objServer.getApartamentos();
-			// System.out.println(s);
 
 		} catch (Exception e) {
 			System.err.println("- Exception running the server: " + e.getMessage());
@@ -52,7 +50,7 @@ public class ServerBook extends UnicastRemoteObject implements IServerBook {
 	@Override
 	public String getApartamentos() throws RemoteException, InvalidUser {
 		String respuesta = null;
-		String url = "https://ds2324.arambarri.eus/api/habitaciones";
+		String url = "https://ds2324.arambarri.eus/api/alojamientos";
 		String token = "0518ee96193abf0dca7b3a46591653eb2b162f3fb2dd6fa681b65b97e3e00243187a1b6839aac73946715fb62719b12a1eb14afc36018935b935c2dbf293448fc98a5cde5a219fc208a3db97489b2c2c479825f212d87658ff3b369e4951b0b3f101ac8d52330262e60846ae80b45b6799c69371e4f47a548053137ada4ec6e5";
 
 		try {
