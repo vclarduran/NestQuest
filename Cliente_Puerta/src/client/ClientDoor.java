@@ -3,7 +3,7 @@ package client;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import server.IServer;
+import server.IServerBook;
 import server.InvalidUser;
 
 public class ClientDoor {
@@ -17,7 +17,7 @@ public class ClientDoor {
 
 
 
-		IServer stubServer = null;
+		IServerBook stubServer = null;
 		/**
 		 * Try test message
 		 */
@@ -26,7 +26,7 @@ public class ClientDoor {
 			Registry registry = LocateRegistry.getRegistry(((Integer.valueOf(args[1]))));
 			String name = "//" + args[0] + ":" + args[1] + "/" + args[2];
 			//stubServer = (IServer) java.rmi.Naming.lookup(name);
-			stubServer = (IServer) registry.lookup(name);
+			stubServer = (IServerBook) registry.lookup(name);
 			System.out.println("* Message coming from the server: '" + stubServer.sayHello() + "'");
 			
 		} 

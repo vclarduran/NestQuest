@@ -4,7 +4,7 @@ package server;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface IServer extends Remote 
+public interface IServerDoor extends Remote 
 {
 	/**
 	 * Test message to say hello to client
