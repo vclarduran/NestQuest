@@ -14,7 +14,7 @@ public interface IServerBook extends Remote
 {
 	
 	/*API APARTMENTOS*/
-	String getApartamentos() throws RemoteException, InvalidUser;
+	String getAlojamientos() throws RemoteException, InvalidUser;
 
 	/* GESTION USUARIO */
 	Usuario comprobarUsusuario (String nombre, String contrasenya) throws RemoteException, InvalidUser;
@@ -28,6 +28,9 @@ public interface IServerBook extends Remote
 	ArrayList<Alojamiento> busquedaOpciones(int horas, int transporte, float presupuesto, int numPersonas, String localizacionActual) throws RemoteException;
 
 	byte[] rutaOptima(Alojamiento alojamiento, String localizacionActual) throws RemoteException;
+
+	byte[] mapaUbicacion(Alojamiento alojamiento, String localizacionActual) throws RemoteException;
+
 
 
 

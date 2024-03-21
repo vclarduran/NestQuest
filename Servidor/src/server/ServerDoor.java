@@ -4,20 +4,16 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.HashMap;
 
 import objetos.Reserva;
 
 public class ServerDoor extends UnicastRemoteObject implements IServerDoor {
 
 	private static final long serialVersionUID = 1L;
-	private int cont = 0;
-	private HashMap <String, String> registeredUsers = null;
 
 	protected ServerDoor() throws RemoteException 
 	{
 		super();
-		registeredUsers = new HashMap<String, String> ();
 	}
 
 

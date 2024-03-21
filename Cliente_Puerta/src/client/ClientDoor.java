@@ -3,7 +3,7 @@ package client;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import server.IServerBook;
+import server.IServerDoor;
 
 public class ClientDoor {
 
@@ -14,12 +14,12 @@ public class ClientDoor {
 			System.exit(0);
 		}
 
-		IServerBook stubServer = null;
+		IServerDoor stubServer = null;
 		try 
 		{
 			Registry registry = LocateRegistry.getRegistry(((Integer.valueOf(args[1]))));
 			String name = "//" + args[0] + ":" + args[1] + "/" + args[2];
-			stubServer = (IServerBook) registry.lookup(name);
+			stubServer = (IServerDoor) registry.lookup(name);
 			System.out.println("* Message coming from the server");
 			
 		} 

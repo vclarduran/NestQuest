@@ -36,7 +36,7 @@ public class ClientBook {
 		//Extraemos los alojamientos disponibles
 		try
 		{
-			System.out.println("Alojamientos disponibles" + stubServer.getApartamentos());
+			System.out.println("Alojamientos disponibles" + stubServer.getAlojamientos());
 			}
 		catch (InvalidUser iu)
 		{
