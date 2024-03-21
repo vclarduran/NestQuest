@@ -9,7 +9,7 @@
 	<property name="server.IP" value="127.0.0.1"/>
 	<property name="serverDoor.Name" value="door"/>
 	<property name="serverClient.Name" value="client"/>
-	<property name="export.file" value="helloServer.jar"/>
+	<property name="export.file" value="serverNestQuest.jar"/>
 	<property name="policy.file" location="security/java.policy"/>	
 
 	<target name="help">
@@ -21,12 +21,6 @@
 		<mkdir dir="${build.dir}"/>
 		<javac srcdir="${source.dir}" destdir="${build.dir}" classpath="${classpath}" deprecation="true" fork="true" includeAntRuntime="no"/>
     </target>
-	
-	<target name="export" depends="build" description="Export the project into a .jar file">
-		<delete dir="${dist.dir}"/>
-		<mkdir dir="${dist.dir}"/>
-		<jar destfile="${dist.dir}/${export.file}" basedir="${build.dir}" excludes="**/Server.class"/>
-    </target>	
     
 	<target name="server-door" depends="build" description="Runs the Server">
 		<java classname="server.ServerDoor" classpath="${classpath}" fork="true">
