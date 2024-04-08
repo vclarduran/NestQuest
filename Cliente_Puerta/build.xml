@@ -5,7 +5,7 @@
    	<property name="build.dir" location="bin"/>
 	<property name="dist.dir" location="dist"/>
 	<property name="classpath" location="bin"/>
-	<property name="server.port" value="1098"/> 
+	<property name="server.port" value="1097"/> 
 	<property name="server.IP" value="127.0.0.1"/> 
 	<property name="serverDoor.Name" value="door"/>
 	<property name="serverClient.Name" value="client"/>
@@ -28,14 +28,6 @@
 		<javac srcdir="${source.dir}" destdir="${build.dir}" classpath="${classpath}" deprecation="true" fork="true" includeAntRuntime="no"/>
     </target>
 
-	<target name="client-book" depends="build" description="Runs the Client">
-		<java classname="client.ClientBook" classpath="${classpath}" fork="true">
-			<jvmarg value="-Djava.security.policy=${policy.file}"/>			
-        	<arg value="${server.IP}"/> 
-	 		<arg value="${server.port}"/> 
-			<arg value="${serverClient.Name}"/> 
-        </java>
-    </target>
 	<target name="client-door" depends="build" description="Runs the Client">
 		<java classname="client.ClientDoor" classpath="${classpath}" fork="true">
 			<jvmarg value="-Djava.security.policy=${policy.file}"/>			
