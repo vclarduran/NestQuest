@@ -41,7 +41,7 @@ public class ServerDoor extends UnicastRemoteObject implements IServerDoor {
 	}
 
 	@Override
-	public Reserva comprobarReserva(int idAlojamiento, int idReserva) throws RemoteException {
+	public Reserva comprobarReserva(int idAlojamiento, String idReserva) throws RemoteException {
 		throw new UnsupportedOperationException("Unimplemented method 'comprobarReserva'");
 	}
 

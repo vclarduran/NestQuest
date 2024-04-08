@@ -25,7 +25,7 @@ public interface IServerBook extends Remote
 	Reserva reservar(Usuario personaQueReserva, PeticionReserva peticionReserva) throws RemoteException;
 
 	/* OPCIONES */
-	ArrayList<Alojamiento> busquedaOpciones(int horas, int transporte, float presupuesto, int numPersonas, String localizacionActual) throws RemoteException;
+	ArrayList<Alojamiento> busquedaOpciones(int horas, int transporte, float presupuesto, Date fechaSalida, Date fechaEntrada, String localizacionActual) throws RemoteException;
 
 	byte[] rutaOptima(Alojamiento alojamiento, String localizacionActual) throws RemoteException;
 
