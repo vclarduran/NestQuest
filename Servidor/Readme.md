@@ -2,7 +2,8 @@ Java RMI Server with Ant
 ========================
 
 ## Pre-requisites
-Apache ANT tool must be installed and included in the binaries path of environmental variables
+La herramienta Apache ANT debe estar instalada e incluida en la ruta de binarios de las variables de entorno.
+
 
 ## Usage server
 ```
