@@ -5,7 +5,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
-
+import java.util.Date;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -89,11 +89,6 @@ public class ServerBook extends UnicastRemoteObject implements IServerBook {
 		throw new UnsupportedOperationException("Unimplemented method 'reservar'");
 	}
 
-	@Override
-	public ArrayList<Alojamiento> busquedaOpciones(int horas, int transporte, float presupuesto, Date fechaSalida, Date fechaEntrada
-			String localizacionActual) throws RemoteException {
-		throw new UnsupportedOperationException("Unimplemented method 'busquedaOpciones'");
-	}
 
 	@Override
 	public byte[] rutaOptima(Alojamiento alojamiento, String localizacionActual) throws RemoteException {
@@ -102,8 +97,13 @@ public class ServerBook extends UnicastRemoteObject implements IServerBook {
 
 	@Override
 	public byte[] mapaUbicacion(Alojamiento alojamiento, String localizacionActual) throws RemoteException {
-		// TODO Auto-generated method stub
 		throw new UnsupportedOperationException("Unimplemented method 'mapaUbicacion'");
+	}
+
+	@Override
+	public ArrayList<Alojamiento> busquedaOpciones(int horas, int transporte, float presupuesto, Date fechaSalida,
+			Date fechaEntrada, String localizacionActual) throws RemoteException {
+		throw new UnsupportedOperationException("Unimplemented method 'busquedaOpciones'");
 	}
 
 }
