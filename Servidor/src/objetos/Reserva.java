@@ -12,5 +12,6 @@ public class Reserva extends PeticionReserva{
     @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
     int idReserva; 
     Usuario personaQueReserva; 
+    //PODEMOS TMB GUARDAR EL ALOJAMIENTO, TENDRÍA SENTIDO POR SI POR EJEMPLO QUEREMOS HACER SECCION "TUS ALOJAMIENTOS PREFERIDOS"
     
 }
