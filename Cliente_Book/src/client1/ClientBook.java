@@ -4,7 +4,6 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 import server.remote.IServerBook;
-import server.remote.InvalidUser;
 
 public class ClientBook {
 
@@ -38,10 +37,6 @@ public class ClientBook {
 		{
 			System.out.println("Alojamientos disponibles" + stubServer.getAlojamientos());
 			}
-		catch (InvalidUser iu)
-		{
-			System.err.println("- Exception running the client: " + iu.getErrorMessage());
-		}
 		catch (Exception e)
 		{
 			System.err.println("- Exception running the client: " + e.getMessage());
