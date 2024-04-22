@@ -3,7 +3,7 @@ package client.remote;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import server.IServerBook;
+import server.remote.IServerBook;
 
 public class RMIServiceLocator_Book
 {

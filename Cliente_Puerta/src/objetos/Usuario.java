@@ -5,6 +5,7 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 //FALTA PONER EL LOOMBOK Y GETTERS Y SETTERS
 @AllArgsConstructor
@@ -13,11 +14,11 @@ public class Usuario {
 
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
-    private int idUsuario;
-    private String nombre;
-    private String apellido; 
-    private String username;
-    private String contrasenya;
-    private String email; 
+    @Getter private int idUsuario;
+    @Getter private String nombre;
+    @Getter private String apellido; 
+    @Getter private String username;
+    @Getter private String contrasenya;
+    @Getter private String email; 
     
 }

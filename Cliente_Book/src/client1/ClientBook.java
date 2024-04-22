@@ -3,8 +3,8 @@ package client;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import server.IServerBook;
-import server.InvalidUser;
+import server.remote.IServerBook;
+import server.remote.InvalidUser;
 
 public class ClientBook {
 

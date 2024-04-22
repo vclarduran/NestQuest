@@ -3,7 +3,7 @@ package client;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import server.IServerDoor;
+import server.remote.IServerDoor;
 
 public class ClientDoor {
 

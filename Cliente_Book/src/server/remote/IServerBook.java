@@ -1,4 +1,4 @@
-package server;
+package server.remote;
 
 
 import java.rmi.Remote;
@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import objetos.Usuario;
+import server.remote.InvalidUser;
 import objetos.Reserva;
 import objetos.Alojamiento;
 import objetos.PeticionReserva;

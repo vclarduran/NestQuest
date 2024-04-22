@@ -5,17 +5,20 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-
+//FALTA PONER EL LOOMBOK Y GETTERS Y SETTERS
 @AllArgsConstructor
 @PersistenceCapable
-public class Reserva extends PeticionReserva{
+public class Usuario {
 
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
-    int idReserva;
-    int idConsumido; //este es el id de HotelProvider 
-    Usuario personaQueReserva; 
-    //PODEMOS TMB GUARDAR EL ALOJAMIENTO, TENDRÍA SENTIDO POR SI POR EJEMPLO QUEREMOS HACER SECCION "TUS ALOJAMIENTOS PREFERIDOS"
+    @Getter private int idUsuario;
+    @Getter private String nombre;
+    @Getter private String apellido; 
+    @Getter private String username;
+    @Getter private String contrasenya;
+    @Getter private String email; 
     
 }

@@ -1,4 +1,4 @@
-package server;
+package server.remote;
 
 public class InvalidUser extends Exception 
 {

@@ -55,7 +55,7 @@
 
 	<!-- para run -->
 	<target name="server-door" depends="compile" description="Runs the Server">
-		<java classname="server.ServerDoor" classpathref="classpath" fork="true">
+		<java classname="server.NestQuestService_Door" classpathref="classpath" fork="true">
 			<jvmarg value="-Djava.rmi.server.codebase=file:${bin.dir}/"/>
 			<jvmarg value="-Djava.security.policy=${policy.file}"/>			
         	<arg value="${server.IP}"/> 
@@ -65,7 +65,7 @@
     </target>
 	
 	<target name="server-book" depends="compile" description="Runs the Server">
-		<java classname="server.ServerBook" classpathref="classpath" fork="true">
+		<java classname="server.NestQuestService_Book" classpathref="classpath" fork="true">
 			<jvmarg value="-Djava.rmi.server.codebase=file:${bin.dir}/"/>
 			<jvmarg value="-Djava.security.policy=${policy.file}"/>			
         	<arg value="${server.IP}"/> 

@@ -1,5 +1,4 @@
-package server;
-
+package server.remote;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -15,12 +14,12 @@ public interface IServerBook extends Remote
 {
 	
 	/*API APARTMENTOS*/
-	String getAlojamientos() throws RemoteException, InvalidUser;
+	String getAlojamientos() throws RemoteException;
 
 	/* GESTION USUARIO */
-	Usuario comprobarUsusuario (String nombre, String contrasenya) throws RemoteException, InvalidUser;
+	Usuario comprobarUsusuario (String nombre, String contrasenya) throws RemoteException;
 
-	Usuario crearUsuario (String nombre, String contrasenya, String email) throws RemoteException, InvalidUser;
+	Usuario crearUsuario (String nombre, String contrasenya, String email) throws RemoteException;
 
 	/* NUEVAS RESERVAS */
 	Reserva reservar(Usuario personaQueReserva, PeticionReserva peticionReserva) throws RemoteException;
