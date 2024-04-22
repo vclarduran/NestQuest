@@ -1,26 +1,19 @@
 package objetos;
+import lombok.Getter;
+import lombok.AllArgsConstructor;
 
+
+@AllArgsConstructor
 public class Alojamiento {
-    private String nombre;
-    private String descripcion;
-    private String direccion;
+	
+	@Getter private String nombre;
+    @Getter private String descripcion;
+    @Getter private String direccion;
 
     public Alojamiento(String nombre, String descripcion, String direccion){
         this.nombre=nombre;
         this.descripcion=descripcion;
         this.direccion=direccion;
-    }
-
-    public String getNombre(){
-        return nombre;
-    }
-
-    public String getDescripcion(){
-        return descripcion;
-    }
-
-    public String getDireccion(){
-        return direccion;
     }
     
 }

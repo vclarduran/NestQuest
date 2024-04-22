@@ -1,12 +1,13 @@
 package objetos;
+import lombok.AllArgsConstructor;
 
 import java.util.Date;
 
+
+@AllArgsConstructor
 public class PeticionReserva {
 
     Alojamiento alojamiento;
-    int numPersonas;
     Date fechaIni;
-    Date fechaFin;  
-    
+    Date fechaFin; 
 }
