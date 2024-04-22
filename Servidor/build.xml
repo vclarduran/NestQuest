@@ -15,16 +15,7 @@
 	<!-- CAMBIAR ESTO -->
 		<echo>Usage: ant [compile | server-door | server-book]</echo>
 	</target>
-	
-	<!-- <target name="build" description="Builds the project">
-		<delete dir="${build.dir}"/>
-		<mkdir dir="${build.dir}"/>
-		<javac srcdir="${src.dir}" destdir="${build.dir}" classpath="${classpath}" deprecation="true" fork="true" includeAntRuntime="no"/>
-    </target> -->
-    
 
-
-<!--  -->
 
     <path id="classpath">
         <fileset dir="${lib.dir}">
