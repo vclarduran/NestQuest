@@ -13,7 +13,7 @@
 
 	<target name="help">
 	<!-- CAMBIAR ESTO -->
-		<echo>Usage: ant [compile | server-door | server-book]</echo>
+		<echo>Usage: ant [create-db-schema | server-door | server-book | delete-db-schema]</echo>
 	</target>
 
 
