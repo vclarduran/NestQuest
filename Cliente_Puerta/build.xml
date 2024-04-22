@@ -29,7 +29,7 @@
     </target>
 
 	<target name="client-door" depends="build" description="Runs the Client">
-		<java classname="client.ClientDoor" classpath="${classpath}" fork="true">
+		<java classname="client.controller.SMSController_Puerta" classpath="${classpath}" fork="true">
 			<jvmarg value="-Djava.security.policy=${policy.file}"/>			
         	<arg value="${server.IP}"/> 
 	 		<arg value="${server.port}"/> 
