@@ -6,5 +6,5 @@ public class PeticionReserva {
 
     Alojamiento alojamiento;
     Date fechaIni;
-    Date fechaFin;  
+    Date fechaFin; 
 }

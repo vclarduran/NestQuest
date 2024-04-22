@@ -102,7 +102,7 @@ public class ServerBook extends UnicastRemoteObject implements IServerBook {
 
 	@Override
 	public ArrayList<Alojamiento> busquedaOpciones(int horas, int transporte, float presupuesto, Date fechaSalida,
-			Date fechaEntrada, String localizacionActual) throws RemoteException {
+			Date fechaEntrada, String localizacionActual, int numPersonas) throws RemoteException {
 		throw new UnsupportedOperationException("Unimplemented method 'busquedaOpciones'");
 	}
 
