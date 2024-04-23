@@ -1,4 +1,4 @@
-package server; 
+package appService; 
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -18,7 +18,7 @@ public class NestQuestService_Door {
         String name = "//" + args[0] + ":" + args[1] + "/" + args[2];
 
         try {
-            IServerDoor objServer = new ServerDoor();
+            IServerDoor objServer = new ServerDoor(this.class);
             Registry registry = LocateRegistry.createRegistry(Integer.valueOf(args[1]));
             registry.rebind(name, objServer);
             System.out.println("* Server '" + name + "' active and waiting...");

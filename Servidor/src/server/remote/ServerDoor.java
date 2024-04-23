@@ -6,13 +6,16 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 import objetos.Reserva;
+import server.NestQuestService_Door;
 
 public class ServerDoor extends UnicastRemoteObject implements IServerDoor {
 
 	private static final long serialVersionUID = 1L;
+	private NestQuestService_Door appService = null;
 
-	public ServerDoor() throws RemoteException 
+	public ServerDoor(NestQuestService_Door as) throws RemoteException 
 	{
+		this.appService = as;
 		super();
 	}
 
