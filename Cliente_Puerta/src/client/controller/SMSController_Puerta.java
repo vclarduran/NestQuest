@@ -21,5 +21,10 @@ public class SMSController_Puerta
     	new SMSController_Puerta(args);
     }
 
+    public boolean comprobarReserva(int codAlojamiento, String codRes,){
+        RMIServiceLocator_Puerta service = rsl.getService();
+        return service.comprobarReserva(codRes, codAlojamiento);
+    }
+
   
 }
