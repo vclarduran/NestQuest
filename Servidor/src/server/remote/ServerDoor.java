@@ -6,7 +6,7 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 import objetos.Reserva;
-import server.NestQuestService_Door;
+import server.appService.NestQuestService_Door;
 
 public class ServerDoor extends UnicastRemoteObject implements IServerDoor {
 
@@ -15,8 +15,8 @@ public class ServerDoor extends UnicastRemoteObject implements IServerDoor {
 
 	public ServerDoor(NestQuestService_Door as) throws RemoteException 
 	{
-		this.appService = as;
 		super();
+		this.appService = as;
 	}
 
 	@Override

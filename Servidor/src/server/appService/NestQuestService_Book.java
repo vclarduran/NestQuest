@@ -1,33 +1,22 @@
-package appService; 
+package server.appService; 
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
+import java.util.Date;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
 import server.remote.ServerBook;
 import server.remote.IServerBook;
 
 public class NestQuestService_Book {
-    public static void main(String[] args) {
-        if (args.length != 3) {
-            System.out.println("usage: java [policy] [codebase] server.Server [host] [port] [server]");
-            System.exit(0);
-        }
-
-        String name = "//" + args[0] + ":" + args[1] + "/" + args[2];
-
-        try {
-            IServerBook objServer = new ServerBook(this.class);
-            Registry registry = LocateRegistry.createRegistry(Integer.valueOf(args[1]));
-            registry.rebind(name, objServer);
-            System.out.println("* Server '" + name + "' active and waiting...");
-
-        } catch (Exception e) {
-            System.err.println("- Exception running the server: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
 
     public String conseguirAlojamientos(){
         String respuesta = null;

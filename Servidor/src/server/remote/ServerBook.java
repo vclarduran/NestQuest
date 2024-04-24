@@ -17,7 +17,7 @@ import objetos.Alojamiento;
 import objetos.PeticionReserva;
 import objetos.Reserva;
 import objetos.Usuario;
-import server.NestQuestService_Book;
+import server.appService.NestQuestService_Book;
 
 
 public class ServerBook extends UnicastRemoteObject implements IServerBook {
