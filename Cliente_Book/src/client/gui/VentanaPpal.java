@@ -28,6 +28,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import javax.swing.ImageIcon;
 
 import client.controller.SMSController_Book;
 
@@ -48,7 +49,7 @@ public class VentanaPpal extends JFrame {
 	        gbc.fill = GridBagConstraints.VERTICAL;
 	        gbc.insets = new Insets(10, 10, 10, 10); 
 
-	        JLabel imageLabel = new JLabel(new ImageIcon("client/gui/imagenes/Logo.png")); // Reemplaza con la ruta de tu imagen
+	        JLabel imageLabel = new JLabel(new ImageIcon("gui/imagenes/Logo.png")); 
 	        gbc.gridx = 0;
 	        gbc.gridy = 0;
 	        gbc.gridwidth = 1;
@@ -78,15 +79,7 @@ public class VentanaPpal extends JFrame {
 	        setLocationRelativeTo(null); 
 	        setVisible(true);
 	        
-	        button.addActionListener(new ActionListener() {
-	            @Override
-	            public void actionPerformed(ActionEvent e) {
-	            
-	                VentanaLogin loginWindow = new VentanaLogin();
-	                loginWindow.setVisible(true);
-	                dispose(); 
-	            }
-	        });
+	        
 
     }
 
