@@ -18,13 +18,16 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import client.controller.SMSController_Book;
+
+
 public class VentanaLogin extends JFrame {
 
     private SMSController_Book controller;
 
 	private JPanel contentPane;
     
-	public VentanaLogin() {
+	public VentanaLogin(SMSController_Book controller) {
 		setTitle("Login");
         setSize(600, 500); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
