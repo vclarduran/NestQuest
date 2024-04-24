@@ -18,6 +18,12 @@ import server.remote.IServerBook;
 
 public class NestQuestService_Book {
 
+	private NestQuestService_Book instance = new NestQuestService_Book();
+
+	public static NestQuestManager_Book getInstance(){
+		return instance; 
+	}
+
     public String conseguirAlojamientos(){
         String respuesta = null;
 		String url = "https://ds2324.arambarri.eus/api/alojamientos";
