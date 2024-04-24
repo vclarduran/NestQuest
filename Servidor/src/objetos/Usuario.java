@@ -15,10 +15,10 @@ public class Usuario {
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
     @Getter private int idUsuario;
-    @Getter private String nombre;
-    @Getter private String apellido; 
-    @Getter private String username;
-    @Getter private String contrasenya;
-    @Getter private String email; 
+    @Getter @Persistent private String nombre;
+    @Getter @Persistent private String apellido; 
+    @Getter @Persistent private String username;
+    @Getter @Persistent private String contrasenya;
+    @Getter @Persistent private String email; 
     
 }
