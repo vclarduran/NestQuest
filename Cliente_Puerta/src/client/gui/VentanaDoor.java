@@ -1,4 +1,7 @@
 package client.gui;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.rmi.RemoteException;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -40,8 +43,16 @@ public class VentanaDoor extends JFrame {
         this.controller = controller;
 
         Properties properties = new Properties();
-        FileInputStream inputStream = new FileInputStream("../../properties/config.properties"); 
-        properties.load(inputStream);
+        try {
+            FileInputStream inputStream = new FileInputStream("../../properties/config.properties");
+            properties.load(inputStream);
+        } catch (FileNotFoundException e) {
+            // Manejo de la excepción FileNotFoundException
+            e.printStackTrace(); // O cualquier otra acción que desees realizar
+        } catch (IOException e) {
+            // Manejo de la excepción IOException
+            e.printStackTrace(); // O cualquier otra acción que desees realizar
+}   
 
         setTitle("Door");
         setSize(500, 400); 
@@ -94,7 +105,13 @@ public class VentanaDoor extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 int codAlojamiento = Integer.parseInt(properties.getProperty("codAlojamiento"));
                 String codReserva = campoCodigoReserva.getText();
-                Reserva reserva = controller.comprobarReserva(codAlojamiento, codReserva);
+                Reserva reserva = new Reserva(0, 0, null, 0);
+                try{
+                    reserva = controller.comprobarReserva(codAlojamiento, codReserva);
+                }
+                catch(RemoteException ex){
+                    ex.printStackTrace();
+                }
 
                 if(reserva != null){
                     JOptionPane.showMessageDialog(null, "Bienvenido a su apartamento", "Reserva comprobada", 0);
