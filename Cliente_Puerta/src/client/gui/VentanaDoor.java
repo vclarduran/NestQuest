@@ -61,8 +61,8 @@ public class VentanaDoor extends JFrame {
 
         JPanel panelPrincipal = new JPanel(new BorderLayout());
         JPanel panelIcono = new JPanel((LayoutManager) new FlowLayout(FlowLayout.LEFT));
-
-        ImageIcon icono = new ImageIcon("src/gui/Imagenes/Logo.png"); 
+        
+        ImageIcon icono = new ImageIcon("gui/imagenes/Logo.png"); 
         Image imagen = icono.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH); 
         ImageIcon iconoRedimensionado = new ImageIcon(imagen);
 
