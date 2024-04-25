@@ -11,6 +11,8 @@ import java.util.Date;
 @NoArgsConstructor
 public class PeticionReserva implements Serializable{
 
+    private static final long serialVersionUID = 2L;
+
     @Getter private Alojamiento alojamiento;
     @Getter private Date fechaIni;
     @Getter private Date fechaFin; 

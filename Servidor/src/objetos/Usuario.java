@@ -16,6 +16,8 @@ import java.io.Serializable;
 @PersistenceCapable
 public class Usuario implements Serializable{
 
+    private static final long serialVersionUID = 4L;
+
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
     @Getter private int idUsuario;

@@ -9,6 +9,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class Usuario implements Serializable{
 
+    private static final long serialVersionUID = 4L;
 
     @Getter private int idUsuario;
     @Getter private String nombre;

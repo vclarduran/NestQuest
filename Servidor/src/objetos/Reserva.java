@@ -14,6 +14,8 @@ import lombok.Getter;
 @PersistenceCapable
 public class Reserva extends PeticionReserva implements Serializable{
 
+    private static final long serialVersionUID = 3L;
+
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
     @Getter private int idReserva;  //TENDRIAMOS QUE CREAR CODIGOS UNICOS
