@@ -49,7 +49,7 @@ public class VentanaPpal extends JFrame {
 	        gbc.fill = GridBagConstraints.VERTICAL;
 	        gbc.insets = new Insets(10, 10, 10, 10); 
 
-	        JLabel imageLabel = new JLabel(new ImageIcon("gui/imagenes/Logo.png")); 
+	        JLabel imageLabel = new JLabel(new ImageIcon("src/client/gui/imagenes/Logo.png")); 
 	        gbc.gridx = 0;
 	        gbc.gridy = 0;
 	        gbc.gridwidth = 1;
