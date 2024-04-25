@@ -21,7 +21,7 @@ public class NestQuestService_Book {
 		return instance; 
 	}
 
-    public String conseguirAlojamientos(){
+    public List<Alojamiento> conseguirAlojamientos(){
 		return DBManagerHotelProvider.getAlojamientos();
     }
 }

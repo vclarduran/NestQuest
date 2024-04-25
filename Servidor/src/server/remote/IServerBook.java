@@ -4,6 +4,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import objetos.Usuario;
 import objetos.Reserva;
@@ -14,7 +15,7 @@ public interface IServerBook extends Remote
 {
 	
 	/*API APARTMENTOS*/
-	String getAlojamientos() throws RemoteException;
+	List<Alojamiento> getAlojamientos() throws RemoteException;
 
 	/* GESTION USUARIO */
 	Usuario comprobarUsusuario (String nombre, String contrasenya) throws RemoteException;

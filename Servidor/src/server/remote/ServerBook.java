@@ -31,7 +31,7 @@ public class ServerBook extends UnicastRemoteObject implements IServerBook {
 	}
 
 	@Override
-	public String getAlojamientos() throws RemoteException {
+	public List<Alojamiento> getAlojamientos() throws RemoteException {
 		return appService.conseguirAlojamientos();
 	}
 
