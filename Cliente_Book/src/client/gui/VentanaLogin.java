@@ -62,7 +62,7 @@ public class VentanaLogin extends JFrame {
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.gridwidth = 1;
-        panelLogin.add(new JLabel("Email:"), gbc);
+        panelLogin.add(new JLabel("Usuario:"), gbc);
         
         gbc.gridx = 1;
         gbc.gridwidth = 2;

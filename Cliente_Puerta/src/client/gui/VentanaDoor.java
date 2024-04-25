@@ -1,4 +1,5 @@
-package gui;
+package client.gui;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -17,35 +18,35 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JOptionPane;
 
-public class Door extends JFrame {
+import java.util.Properties;
+import java.io.FileInputStream;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
+
+
+import client.controller.SMSController_Puerta;
+import objetos.*;
+
+public class VentanaDoor extends JFrame {
 
     private JPanel contentPane;
+    SMSController_Puerta controller = null;
 
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    Door frame = new Door();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
+    public VentanaDoor(SMSController_Puerta controller) {
 
-    /**
-     * Create the frame.
-     */
-    public Door() {
+        this.controller = controller;
+
+        Properties properties = new Properties();
+        FileInputStream inputStream = new FileInputStream("../../properties/config.properties"); 
+        properties.load(inputStream);
+
         setTitle("Door");
-        setSize(500, 400); // Tamaño de la ventana
+        setSize(500, 400); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null); // Centrar la ventana en la pantalla
+        setLocationRelativeTo(null); 
 
         JPanel panelPrincipal = new JPanel(new BorderLayout());
         JPanel panelIcono = new JPanel((LayoutManager) new FlowLayout(FlowLayout.LEFT));
@@ -87,6 +88,21 @@ public class Door extends JFrame {
         gbc.anchor = GridBagConstraints.CENTER;
         JButton botonComprobar = new JButton("Comprobar");
         panelLogin.add(botonComprobar, gbc);
+
+        botonComprobar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int codAlojamiento = Integer.parseInt(properties.getProperty("codAlojamiento"));
+                String codReserva = campoCodigoReserva.getText();
+                Reserva reserva = controller.comprobarReserva(codAlojamiento, codReserva);
+
+                if(reserva != null){
+                    JOptionPane.showMessageDialog(null, "Bienvenido a su apartamento", "Reserva comprobada", 0);
+                }else{
+                    JOptionPane.showMessageDialog(null, "La reserva no es correcta, está no es la habitación de su estancia", "Reserva incorrecta", 0);
+                }
+            }
+        });
 
         panelPrincipal.add(panelLogin, BorderLayout.CENTER);
 

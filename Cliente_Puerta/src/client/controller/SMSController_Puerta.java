@@ -3,6 +3,11 @@ package client.controller;
 import java.rmi.RemoteException;
 
 import client.remote.RMIServiceLocator_Puerta;
+import client.controller.SMSController_Puerta;
+
+import client.gui.VentanaDoor;
+
+import objetos.*;
 
 public class SMSController_Puerta
 {
@@ -11,7 +16,8 @@ public class SMSController_Puerta
 	public SMSController_Puerta(String[] args) throws RemoteException 
 	{		
 
-        //aqui se deberian abrir las ventanas
+        VentanaDoor ventanaPrincipal = new VentanaDoor(this);
+        ventanaPrincipal.setVisible(true);
 
         this.rsl = new RMIServiceLocator_Puerta();
         this.rsl.setService(args[0],args[1],args[2]);
@@ -21,9 +27,8 @@ public class SMSController_Puerta
     	new SMSController_Puerta(args);
     }
 
-    public boolean comprobarReserva(int codAlojamiento, String codRes,){
-        RMIServiceLocator_Puerta service = rsl.getService();
-        return service.comprobarReserva(codRes, codAlojamiento);
+    public Reserva comprobarReserva(int codAlojamiento, String codRes){
+        return rsl.getService().comprobarReserva(codAlojamiento, codRes);
     }
 
   

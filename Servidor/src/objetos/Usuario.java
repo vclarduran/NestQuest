@@ -5,10 +5,12 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Getter;
 
 //FALTA PONER EL LOOMBOK Y GETTERS Y SETTERS
 @AllArgsConstructor
+@NoArgsConstructor
 @PersistenceCapable
 public class Usuario {
 

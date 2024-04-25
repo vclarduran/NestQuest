@@ -3,6 +3,7 @@ package client.remote;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
+
 import server.remote.IServerDoor;
 
 public class RMIServiceLocator_Puerta
@@ -31,4 +32,5 @@ public class RMIServiceLocator_Puerta
     {
         return service;
     }
+
 }
