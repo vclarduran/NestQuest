@@ -1,3 +1,4 @@
+package client.gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -28,6 +29,7 @@ public class VentanaLogin extends JFrame {
 	private JPanel contentPane;
     
 	public VentanaLogin(SMSController_Book controller) {
+        this.controller=controller;
 		setTitle("Login");
         setSize(600, 500); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
