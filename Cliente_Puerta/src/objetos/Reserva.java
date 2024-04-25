@@ -3,9 +3,11 @@ package objetos;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.io.Serializable;
+
 
 @AllArgsConstructor
-public class Reserva extends PeticionReserva{
+public class Reserva extends PeticionReserva implements Serializable{
 
     @Getter private int idReserva;
     @Getter private int idConsumido; //este es el id de HotelProvider 

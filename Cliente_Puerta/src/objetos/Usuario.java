@@ -1,11 +1,13 @@
 package objetos;
 
+import java.io.Serializable;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 //FALTA PONER EL LOOMBOK Y GETTERS Y SETTERS
 @AllArgsConstructor
-public class Usuario {
+public class Usuario implements Serializable{
 
 
     @Getter private int idUsuario;

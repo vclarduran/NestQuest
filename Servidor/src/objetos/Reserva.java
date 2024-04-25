@@ -1,5 +1,7 @@
 package objetos;
 
+import java.io.Serializable;
+
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
@@ -10,7 +12,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @PersistenceCapable
-public class Reserva extends PeticionReserva{
+public class Reserva extends PeticionReserva implements Serializable{
 
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)

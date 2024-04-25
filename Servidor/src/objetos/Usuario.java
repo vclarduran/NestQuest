@@ -8,11 +8,13 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Getter;
 
+import java.io.Serializable;
+
 //FALTA PONER EL LOOMBOK Y GETTERS Y SETTERS
 @AllArgsConstructor
 @NoArgsConstructor
 @PersistenceCapable
-public class Usuario {
+public class Usuario implements Serializable{
 
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
