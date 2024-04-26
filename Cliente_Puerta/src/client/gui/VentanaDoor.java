@@ -44,7 +44,8 @@ public class VentanaDoor extends JFrame {
 
         Properties properties = new Properties();
         try {
-            FileInputStream inputStream = new FileInputStream("../../properties/config.properties");
+            String currentDir = System.getProperty("user.dir");
+            FileInputStream inputStream = new FileInputStream(currentDir + "/properties/config.properties");
             properties.load(inputStream);
         } catch (FileNotFoundException e) {
             // Manejo de la excepción FileNotFoundException
