@@ -39,7 +39,12 @@ public class DBManagerHotelProvider {
 				String jsonResponse = response.body();
 				Gson gson = new Gson();
 
-				for (JsonElement element : data) {
+				// Convertir la respuesta en un objeto JSON
+				JsonParser parser = new JsonParser();
+				JsonElement jsonElement = parser.parse(jsonResponse);
+				JsonArray jsonArray = jsonElement.getAsJsonArray();
+
+				for (JsonElement element : jsonArray) {
                     JsonObject item = element.getAsJsonObject();
 					int id = item.get("id").getAsInt();
                     JsonObject attributes = item.getAsJsonObject("attributes");

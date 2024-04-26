@@ -14,5 +14,9 @@ public class Alojamiento implements Serializable {
 	@Getter @Setter private String nombre;
     @Getter @Setter private String descripcion;
     @Getter @Setter private String direccion;
+
+    public Alojamiento(){
+        
+    }
     
 }
