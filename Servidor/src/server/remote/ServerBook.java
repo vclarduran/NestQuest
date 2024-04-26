@@ -41,8 +41,9 @@ public class ServerBook extends UnicastRemoteObject implements IServerBook {
 	}
 
 	@Override
-	public Usuario comprobarUsusuario(String nombre, String contrasenya) throws RemoteException {
-		throw new UnsupportedOperationException("Unimplemented method 'comprobarUsusuario'");
+	public Usuario comprobarUsuario(String usuario, String contrasenya) throws RemoteException {
+		return appService.comprobarUsuario(usuario, contrasenya);
+		// throw new UnsupportedOperationException("Unimplemented method 'comprobarUsuario'");
 	}
 
 	@Override

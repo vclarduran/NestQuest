@@ -18,7 +18,7 @@ public interface IServerBook extends Remote
 	List<Alojamiento> getAlojamientos() throws RemoteException;
 
 	/* GESTION USUARIO */
-	Usuario comprobarUsusuario (String nombre, String contrasenya) throws RemoteException;
+	Usuario comprobarUsuario (String usuario, String contrasenya) throws RemoteException;
 
 	Usuario crearUsuario (String nombre, String contrasenya, String email) throws RemoteException;
 

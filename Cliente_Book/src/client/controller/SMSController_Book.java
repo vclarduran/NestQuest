@@ -1,4 +1,5 @@
 package client.controller;
+// Cliente_Book\src\client\controller\SMSController_Book.java;
 
 import java.rmi.RemoteException;
 
@@ -23,24 +24,31 @@ public class SMSController_Book
         this.rsl = new RMIServiceLocator_Book();
         this.rsl.setService(args[0],args[1],args[2]);
 
-        List<Alojamiento> alojamientos = new ArrayList<>();
-        alojamientos = this.getAlojamientos();
+        //////////////////////////EJEMPLO RECORRIDO getAlojamientos() por consola //////////////////////
 
-        System.out.println("");
-        System.out.println("ALOJAMIENTOS:");
-        for(Alojamiento alojamiento : alojamientos){
+        // List<Alojamiento> alojamientos = new ArrayList<>();
+        // alojamientos = this.getAlojamientos();
+
+        // System.out.println("");
+        // System.out.println("ALOJAMIENTOS:");
+        // for(Alojamiento alojamiento : alojamientos){
           
-        //   System.out.println(alojamiento.getId());
-          System.out.println(alojamiento.getNombre());
-        //   System.out.println(alojamiento.getDireccion());
-        //   System.out.println(alojamiento.getDescripcion());  
-        }
+        // //   System.out.println(alojamiento.getId());
+        //   System.out.println(alojamiento.getNombre());
+        // //   System.out.println(alojamiento.getDireccion());
+        // //   System.out.println(alojamiento.getDescripcion());  
+        // }
         
 	}
 
     	List<Alojamiento> getAlojamientos() throws RemoteException {
             return this.rsl.getService().getAlojamientos();
         }
+
+        public Usuario comprobarUsuario (String usuario, String contrasenya) throws RemoteException{
+            return this.rsl.getService().comprobarUsuario(usuario, contrasenya);
+        }
+
 
     public static void main(String[] args) throws RemoteException {    	
     	new SMSController_Book(args);

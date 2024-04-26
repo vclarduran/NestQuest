@@ -2,6 +2,7 @@ package server.accesoBD;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.ArrayList;
 
 import javax.jdo.Extent;
 import javax.jdo.JDOHelper;
@@ -20,6 +21,68 @@ import objetos.Usuario;
 //PARA ACCESOS A BD (JDO)
 
 public class DbManagerNestQuest {
+
+    private static final PersistenceManagerFactory persistentManagerFactory;
+
+    static {
+        try{
+            persistentManagerFactory = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+        }catch(Exception ex){
+            System.err.println("* Exception creating PersistenceManagerFactory: " + ex.getMessage());
+            throw ex;
+        }
+    }
+
+    public static Usuario comprobarUsuario(String usuarioParam, String contrasenyaParam) {
+        System.out.println(usuarioParam);
+        System.out.println(contrasenyaParam);
+
+        // ACCESO A BD
+        PersistenceManager persistentManager = persistentManagerFactory.getPersistenceManager();
+        Transaction transaction = persistentManager.currentTransaction();
+        Usuario usuarioDevuelto = null;
+        List<Usuario> usuariosTodos = new ArrayList<>();
+
+
+        try{
+            transaction.begin();
+
+            Query<Usuario> query = persistentManager.newQuery("SELECT FROM "+ Usuario.class.getName());
+            usuariosTodos = query.executeList();
+
+            System.out.println(usuariosTodos);
+            //SACA UNA LISTA VACIA NO ENCUENTRA LOS DATOS DE LA BD ??????????????
+
+            for (Usuario u : usuariosTodos){
+                if(u.getUsername().equals(usuarioParam) && u.getContrasenya().equals(contrasenyaParam)){
+                    usuarioDevuelto = u;
+                }
+            }
+ 
+
+            // Query<Usuario> query = persistentManager.newQuery(Usuario.class);
+            // query.setFilter("username == usuarioParam && contrasenya == contrasenyaParam");
+            // query.declareParameters("String usuarioParam, String contrasenyaParam");
+
+            // List<Usuario> usuarios = (List<Usuario>) query.execute(usuarioParam, contrasenyaParam);
+            // System.out.println(usuarios);
+
+            // if(!usuarios.isEmpty()){
+            //     usuarioDevuelto = usuarios.get(0);
+            // }
+
+            transaction.commit();
+        }catch (Exception ex){
+            System.err.println("* Exception executing a query: " + ex.getMessage());
+        }finally{
+            if (transaction.isActive()){
+                transaction.rollback();
+            }
+            persistentManager.close();
+        }
+        
+        return usuarioDevuelto;
+    }
 
     //ESTO NO DEVUELVE LO QUE TOCA 
     public static Reserva comprobarReserva(int codAlojamiento, String codReserva) {

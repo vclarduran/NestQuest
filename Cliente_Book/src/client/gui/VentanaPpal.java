@@ -73,7 +73,7 @@ public class VentanaPpal extends JFrame {
 	        button.setPreferredSize(new Dimension(200, 40));
 	        panel.add(button, gbc);
 	        
-			 button.addActionListener(new ActionListener() {
+			button.addActionListener(new ActionListener() {
 	            @Override
 	            public void actionPerformed(ActionEvent e) {
 	                // Abre la nueva ventana Login
