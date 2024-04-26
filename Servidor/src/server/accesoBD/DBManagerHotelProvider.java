@@ -37,26 +37,30 @@ public class DBManagerHotelProvider {
 
 			if (response.statusCode() == 200) {
 				String jsonResponse = response.body();
-				Gson gson = new Gson();
 
 				// Convertir la respuesta en un objeto JSON
 				JsonParser parser = new JsonParser();
 				JsonElement jsonElement = parser.parse(jsonResponse);
-				JsonArray jsonArray = jsonElement.getAsJsonArray();
+				JsonArray alojamientosArray = jsonElement.getAsJsonObject().getAsJsonArray("data");
 
-				for (JsonElement element : jsonArray) {
-                    JsonObject item = element.getAsJsonObject();
-					int id = item.get("id").getAsInt();
-                    JsonObject attributes = item.getAsJsonObject("attributes");
-                    String nombre = attributes.get("nombre").getAsString();
-                    String descripcion = attributes.get("descripcion").getAsString();
-                    String direccion = attributes.get("direccion").getAsString();
+				for (JsonElement element : alojamientosArray) {
+					// System.out.println(element);	//devuelve un elemento pero en formato json
+					JsonObject alojamientoObj = element.getAsJsonObject();
+
+					int id = alojamientoObj.get("id").getAsInt();
+
+					JsonObject attributes = alojamientoObj.getAsJsonObject("attributes");
+					String nombre = attributes.get("nombre").getAsString();
+					String descripcion = attributes.get("descripcion").getAsString();
+					String direccion = attributes.get("direccion").getAsString();
 
 					Alojamiento al = new Alojamiento();
 					al.setId(id);
 					al.setNombre(nombre);
 					al.setDescripcion(descripcion);
 					al.setDireccion(direccion);
+
+					System.out.println(al.getNombre());
 
 					alojamientos.add(al);
 				}

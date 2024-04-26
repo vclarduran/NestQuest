@@ -25,12 +25,15 @@ public class SMSController_Book
 
         List<Alojamiento> alojamientos = new ArrayList<>();
         alojamientos = this.getAlojamientos();
+
+        System.out.println("");
+        System.out.println("ALOJAMIENTOS:");
         for(Alojamiento alojamiento : alojamientos){
           
-          System.out.println(alojamiento.getId());
+        //   System.out.println(alojamiento.getId());
           System.out.println(alojamiento.getNombre());
-          System.out.println(alojamiento.getDireccion());
-          System.out.println(alojamiento.getDescripcion());  
+        //   System.out.println(alojamiento.getDireccion());
+        //   System.out.println(alojamiento.getDescripcion());  
         }
         
 	}
