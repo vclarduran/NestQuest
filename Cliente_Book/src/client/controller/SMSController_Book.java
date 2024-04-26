@@ -49,6 +49,10 @@ public class SMSController_Book
             return this.rsl.getService().comprobarUsuario(usuario, contrasenya);
         }
 
+        public boolean crearUsuario (Usuario usuario) throws RemoteException{
+            return this.rsl.getService().crearUsuario(usuario);
+        }
+
 
     public static void main(String[] args) throws RemoteException {    	
     	new SMSController_Book(args);

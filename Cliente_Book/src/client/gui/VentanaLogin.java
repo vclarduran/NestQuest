@@ -134,22 +134,14 @@ public class VentanaLogin extends JFrame {
         botonCrearCuenta.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-
-
-                try{
-                    Usuario usuarioRespuesta = controller.comprobarUsuario(usuario, contrasenya);
-                
-                }catch (RemoteException ex){
-                    ex.printStackTrace();
-                }
-                
-
+                VentanaRegistro ventanaRegistro = new VentanaRegistro(controller);
+                ventanaRegistro.setVisible(true);
+                dispose();
             }
         });
-        //
                
         panelPrincipal.add(panelLogin, BorderLayout.CENTER);
                 
         add(panelPrincipal);
     }
-	}
+}

@@ -36,4 +36,8 @@ public class NestQuestService_Book {
 		return DbManagerNestQuest.comprobarUsuario(usuario, contrasenya);
 	}
 
+	public boolean crearUsuario(Usuario usuario){
+		return DbManagerNestQuest.crearUsuario(usuario);
+	}
+
 }

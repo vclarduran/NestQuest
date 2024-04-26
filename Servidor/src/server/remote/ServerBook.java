@@ -47,8 +47,9 @@ public class ServerBook extends UnicastRemoteObject implements IServerBook {
 	}
 
 	@Override
-	public Usuario crearUsuario(String nombre, String contrasenya, String email) throws RemoteException {
-		throw new UnsupportedOperationException("Unimplemented method 'crearUsuario'");
+	public boolean crearUsuario(Usuario usuario) throws RemoteException {
+		return appService.crearUsuario(usuario);
+		// throw new UnsupportedOperationException("Unimplemented method 'crearUsuario'");
 	}
 
 	@Override

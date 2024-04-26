@@ -20,7 +20,7 @@ public interface IServerBook extends Remote
 	/* GESTION USUARIO */
 	Usuario comprobarUsuario (String usuario, String contrasenya) throws RemoteException;
 
-	Usuario crearUsuario (String nombre, String contrasenya, String email) throws RemoteException;
+	boolean crearUsuario (Usuario usuario) throws RemoteException;
 
 	/* NUEVAS RESERVAS */
 	Reserva reservar(Usuario personaQueReserva, PeticionReserva peticionReserva) throws RemoteException;

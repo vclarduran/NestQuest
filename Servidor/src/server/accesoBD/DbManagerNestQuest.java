@@ -84,6 +84,35 @@ public class DbManagerNestQuest {
         return usuarioDevuelto;
     }
 
+    public static boolean crearUsuario(Usuario usuario){
+        // ACCESO A BD
+        PersistenceManager persistentManager = persistentManagerFactory.getPersistenceManager();
+        Transaction transaction = persistentManager.currentTransaction();
+        boolean registradoCorrecto = false;
+
+
+        try{
+            transaction.begin();
+
+            persistentManager.makePersistent(usuario);
+            System.out.println("Registrado: "+ usuario);
+            registradoCorrecto=true;
+ 
+
+            transaction.commit();
+        }catch (Exception ex){
+            System.err.println("* Exception executing a query: " + ex.getMessage());
+        }finally{
+            if (transaction.isActive()){
+                transaction.rollback();
+            }
+            persistentManager.close();
+        }
+        
+        return registradoCorrecto;
+    }
+    
+
     //ESTO NO DEVUELVE LO QUE TOCA 
     public static Reserva comprobarReserva(int codAlojamiento, String codReserva) {
 
