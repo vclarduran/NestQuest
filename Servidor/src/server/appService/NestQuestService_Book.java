@@ -13,6 +13,11 @@ import server.remote.ServerBook;
 import server.accesoBD.DBManagerHotelProvider;
 import server.remote.IServerBook;
 
+import java.util.List;
+import java.util.ArrayList;
+
+import objetos.Alojamiento;
+
 public class NestQuestService_Book {
 
 	private static NestQuestService_Book instance = new NestQuestService_Book();
