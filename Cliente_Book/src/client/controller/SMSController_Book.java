@@ -26,6 +26,9 @@ public class SMSController_Book
 
         //////////////////////////EJEMPLO RECORRIDO getAlojamientos() por consola //////////////////////
 
+        System.out.println("");
+		System.out.println("ALOJAMIENTOS:");
+
         List<Alojamiento> alojamientos = new ArrayList<>();
         alojamientos = this.getAlojamientos();
 
@@ -33,8 +36,15 @@ public class SMSController_Book
             System.out.println(al.getNombre());
         }
 
+        System.out.println("");
+		System.out.println("HABITACIONES:");
+
         List<Habitacion> habitaciones = new ArrayList<>();
         habitaciones = this.getHabitaciones();
+
+        for (Habitacion hab : habitaciones){
+            System.out.println(hab.getNombre());
+        }
 
 
 

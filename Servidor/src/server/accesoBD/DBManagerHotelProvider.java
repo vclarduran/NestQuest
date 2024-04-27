@@ -46,6 +46,9 @@ public class DBManagerHotelProvider {
 				JsonElement jsonElement = parser.parse(jsonResponse);
 				JsonArray alojamientosArray = jsonElement.getAsJsonObject().getAsJsonArray("data");
 
+				System.out.println("");
+				System.out.println("ALOJAMIENTOS:");
+
 				for (JsonElement element : alojamientosArray) {
 					// System.out.println(element);	//devuelve un elemento pero en formato json
 					JsonObject alojamientoObj = element.getAsJsonObject();
@@ -99,6 +102,9 @@ public class DBManagerHotelProvider {
 				JsonParser parser = new JsonParser();
 				JsonElement jsonElement = parser.parse(jsonResponse);
 				JsonArray habitacionesArray = jsonElement.getAsJsonObject().getAsJsonArray("data");
+
+				System.out.println("");
+				System.out.println("HABITACIONES:");
 
 				for (JsonElement element : habitacionesArray) {
 					// System.out.println(element);	//devuelve un elemento pero en formato json
