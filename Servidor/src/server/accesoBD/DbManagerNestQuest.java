@@ -49,7 +49,7 @@ public class DbManagerNestQuest {
         try{
             transaction.begin();
 
-            Query<Usuario> query = persistentManager.newQuery("SELECT FROM "+ Usuario.class.getName());
+            Query<Usuario> query = persistentManager.newQuery("SELECT FROM "+ Usuario.class.getName() + " WHERE 1");
             usuariosTodos = query.executeList();
 
             System.out.println(usuariosTodos);
@@ -115,49 +115,49 @@ public class DbManagerNestQuest {
     }
     
 
-    //ESTO NO DEVUELVE LO QUE TOCA 
+    //ESTO NO DEVUELVE NADA (no puede acceder a BD)
     public static Reserva comprobarReserva(int codAlojamiento, String codReserva) {
 
-        return new Reserva(22, 22, new Usuario(), 22);
+        Reserva encontrada = null; 
 
-        // Reserva encontrada = null; 
+        PersistenceManager persistentManager = persistentManagerFactory.getPersistenceManager();
+        Transaction transaction = persistentManager.currentTransaction();
 
-        // PersistenceManagerFactory persistentManagerFactory = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
-
-        // PersistenceManager persistentManager = persistentManagerFactory.getPersistenceManager();
-        // Transaction transaction = persistentManager.currentTransaction();
-
-        // try {
-        //     transaction.begin();
+        try {
+            transaction.begin();
 
             
-        //     @SuppressWarnings("unchecked")
-        //     Query<Reserva> reservas = persistentManager.newQuery("SELECT FROM " + Reserva.class.getName() + " WHERE idReserva =" + codReserva);
+            @SuppressWarnings("unchecked")
+            Query<Reserva> reservas = persistentManager.newQuery("SELECT FROM " + Reserva.class.getName() +" WHERE idReserva == " +  codReserva);
 
-        //     reservas.setUnique(true);
+            for (Reserva r : reservas.executeList()) {
+                System.out.println(r.getIdReserva());
+            }
+
+            reservas.setUnique(true);
         
-        //     encontrada = (Reserva) reservas.execute(codReserva);
+            Reserva reserva = (Reserva) reservas.execute(codReserva);
 
-        //     // if(reserva.getIdAlojamiento() == codAlojamiento && 
-        //     // reserva.getFechaIni().compareTo(LocalDate.now()) <= 0 && 
-        //     // LocalDate.now().compareTo(reserva.getFechaFin()) <= 0){
-        //     //     encontrada = reserva;
-        //     // }
+            // if(reserva.getIdAlojamiento() == codAlojamiento && 
+            // reserva.getFechaIni().compareTo(LocalDate.now()) <= 0 && 
+            // LocalDate.now().compareTo(reserva.getFechaFin()) <= 0){
+            //     encontrada = reserva;
+            // }
                 
-        //     transaction.commit();
+            transaction.commit();
 
-        // } catch(Exception ex) {
-        //     System.err.println("* Exception executing a query: " + ex.getMessage());
+        } catch(Exception ex) {
+            System.err.println("* Exception executing a query: " + ex.getMessage());
        
-        // } finally {
-        //     if (transaction.isActive()) {
-        //         transaction.rollback();
-        //     }
+        } finally {
+            if (transaction.isActive()) {
+                transaction.rollback();
+            }
 
-        //     persistentManager.close();
+            persistentManager.close();
 
-        //     return encontrada;
-        // }
+            return encontrada;
+        }
 
     }
 

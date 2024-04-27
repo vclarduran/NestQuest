@@ -115,6 +115,7 @@ public class VentanaDoor extends JFrame {
                 }
 
                 if(reserva != null){
+                    System.out.println(reserva.getIdReserva());
                     JOptionPane.showMessageDialog(null, "Bienvenido a su apartamento", "Reserva comprobada", 0);
                 }else{
                     JOptionPane.showMessageDialog(null, "La reserva no es correcta, está no es la habitación de su estancia", "Reserva incorrecta", 0);

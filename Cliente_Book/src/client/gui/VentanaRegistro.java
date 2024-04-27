@@ -136,8 +136,6 @@ public class VentanaRegistro extends JFrame {
                     ex.printStackTrace();
                 }
                 
-                // Aquí puedes realizar el registro del usuario utilizando los datos ingresados
-                
             }
         });
         

@@ -12,11 +12,10 @@ import lombok.*;
 
 import java.io.Serializable;
 
-//FALTA PONER EL LOOMBOK Y GETTERS Y SETTERS
+@PersistenceCapable
 @AllArgsConstructor
 @NoArgsConstructor
 @RequiredArgsConstructor
-@PersistenceCapable
 public class Usuario implements Serializable{
 
     private static final long serialVersionUID = 4L;
@@ -24,10 +23,10 @@ public class Usuario implements Serializable{
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
     @Getter private int idUsuario;
-    @NonNull @Getter @Persistent private String nombre;
-    @NonNull @Getter @Persistent private String apellido; 
-    @NonNull @Getter @Persistent private String username;
-    @NonNull @Getter @Persistent private String contrasenya;
-    @NonNull @Getter @Persistent private String email; 
+    @NonNull @Getter private String nombre;
+    @NonNull @Getter private String apellido; 
+    @NonNull @Getter private String username;
+    @NonNull @Getter private String contrasenya;
+    @NonNull @Getter private String email; 
     
 }

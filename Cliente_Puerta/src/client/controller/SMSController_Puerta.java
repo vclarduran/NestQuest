@@ -29,8 +29,7 @@ public class SMSController_Puerta
 
     public Reserva comprobarReserva(int codAlojamiento, String codRes) throws RemoteException{
 
-    return rsl.getService().comprobarReserva(codAlojamiento, codRes);
-
+        return rsl.getService().comprobarReserva(codAlojamiento, codRes);
     }
 
   

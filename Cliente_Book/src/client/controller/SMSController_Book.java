@@ -45,9 +45,6 @@ public class SMSController_Book
         for (Habitacion hab : habitaciones){
             System.out.println(hab.getNombre());
         }
-
-
-
     
 	}
 
