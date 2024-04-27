@@ -10,13 +10,15 @@ import objetos.Usuario;
 import objetos.Reserva;
 import objetos.Alojamiento;
 import objetos.PeticionReserva;
+import objetos.*;
+
 
 public interface IServerBook extends Remote 
 {
 	
 	/*API APARTMENTOS*/
 	List<Alojamiento> getAlojamientos() throws RemoteException;
-	List<Alojamiento> getHabitaciones(List<Alojamiento> alojamientos) throws RemoteException;
+	List<Habitacion> getHabitaciones() throws RemoteException;
 	
 	/* GESTION USUARIO */
 	Usuario comprobarUsuario (String usuario, String contrasenya) throws RemoteException;

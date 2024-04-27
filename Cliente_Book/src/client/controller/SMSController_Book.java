@@ -26,27 +26,17 @@ public class SMSController_Book
 
         //////////////////////////EJEMPLO RECORRIDO getAlojamientos() por consola //////////////////////
 
-         List<Alojamiento> alojamientos = new ArrayList<>();
-         alojamientos = this.getAlojamientos();
+        List<Alojamiento> alojamientos = new ArrayList<>();
+        alojamientos = this.getAlojamientos();
 
-         List<Alojamiento> alojamientosConHabitaciones = new ArrayList<>();
-         alojamientosConHabitaciones = this.getHabitaciones(alojamientos);
-
-        System.out.println("");
-        System.out.println("ALOJAMIENTOS:");
-        for(Alojamiento alojamiento : alojamientosConHabitaciones){
-          
-           System.out.println(alojamiento.getId());
-          System.out.println(alojamiento.getNombre());
-           System.out.println(alojamiento.getDireccion());
-           System.out.println(alojamiento.getDescripcion());  
-           for(Habitacion habitacion : alojamiento.getHabitacion()){
-                System.out.println(habitacion.getId());
-                System.out.println(habitacion.getNombre());
-                System.out.println(habitacion.getDescripcion());
-                System.out.println(habitacion.getAforo());
-           }
+        for (Alojamiento al : alojamientos){
+            System.out.println(al.getNombre());
         }
+
+        List<Habitacion> habitaciones = new ArrayList<>();
+        habitaciones = this.getHabitaciones();
+
+
 
     
 	}
@@ -55,8 +45,8 @@ public class SMSController_Book
             return this.rsl.getService().getAlojamientos();
         }
 
-        List<Alojamiento> getHabitaciones(List<Alojamiento> alojamientos)throws RemoteException{
-            return this.rsl.getService().getHabitaciones(alojamientos);
+        List<Habitacion> getHabitaciones() throws RemoteException {
+            return this.rsl.getService().getHabitaciones();
         }
 
         public Usuario comprobarUsuario (String usuario, String contrasenya) throws RemoteException{

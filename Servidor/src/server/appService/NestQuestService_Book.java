@@ -32,8 +32,8 @@ public class NestQuestService_Book {
 		return DBManagerHotelProvider.getAlojamientos();
     }
 
-	public  List<Alojamiento> conseguirHabitaciones(List<Alojamiento> alojamientos){
-		return DBManagerHotelProvider.getHabitaciones(alojamientos);
+	public List<Habitacion> conseguirHabitaciones(){
+		return DBManagerHotelProvider.getHabitaciones();
 	}
 
 	public Usuario comprobarUsuario(String usuario, String contrasenya){

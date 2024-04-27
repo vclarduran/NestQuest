@@ -47,7 +47,8 @@ public class VentanaLogin extends JFrame {
         JPanel panelIcono = new JPanel((LayoutManager) new FlowLayout(FlowLayout.LEFT));
         
         ImageIcon icono = new ImageIcon("src/client/gui/imagenes/Logo.png"); 
-        Image imagen = icono.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH); 
+        // Image imagen = icono.habitImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH); 
+        Image imagen = icono.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
         ImageIcon iconoRedimensionado = new ImageIcon(imagen);
         
         JLabel labelImagen = new JLabel(iconoRedimensionado);

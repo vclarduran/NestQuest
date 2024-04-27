@@ -17,6 +17,8 @@ import java.io.FileInputStream;
 
 import objetos.Reserva;
 import objetos.Usuario;
+import objetos.*;
+
 
 //PARA ACCESOS A BD (JDO)
 

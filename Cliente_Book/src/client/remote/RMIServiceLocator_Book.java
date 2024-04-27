@@ -4,6 +4,8 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 import server.remote.IServerBook;
+import objetos.*;
+
 
 public class RMIServiceLocator_Book
 {

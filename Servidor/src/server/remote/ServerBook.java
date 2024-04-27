@@ -22,6 +22,8 @@ import objetos.Alojamiento;
 import objetos.PeticionReserva;
 import objetos.Reserva;
 import objetos.Usuario;
+import objetos.*;
+
 import server.appService.NestQuestService_Book;
 
 import java.util.List;
@@ -42,8 +44,10 @@ public class ServerBook extends UnicastRemoteObject implements IServerBook {
 	public List<Alojamiento> getAlojamientos() throws RemoteException {
 		return appService.conseguirAlojamientos();
 	}
-	public List<Alojamiento> getHabitaciones(List<Alojamiento> alojamientos) throws RemoteException{
-		return appService.conseguirHabitaciones(alojamientos);
+
+	@Override
+	public List<Habitacion> getHabitaciones() throws RemoteException {
+		return appService.conseguirHabitaciones();
 	}
 
 

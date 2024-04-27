@@ -8,6 +8,9 @@ import java.rmi.registry.Registry;
 import server.remote.ServerBook;
 import server.remote.IServerBook;
 
+import objetos.*;
+
+
 public class NestQuestManager_Book {
 
     public static void main(String[] args) {

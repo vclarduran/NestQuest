@@ -31,6 +31,8 @@ import java.awt.GridBagLayout;
 import javax.swing.ImageIcon;
 
 import client.controller.SMSController_Book;
+import objetos.*;
+
 
 public class VentanaPpal extends JFrame {
 
