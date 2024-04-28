@@ -188,7 +188,7 @@ public class VentanaRegistro extends JFrame {
                         System.out.println("Registro exitoso. "+ usuarioRegistrar);
 
                         VentanaFiltros ventanaFiltros = new VentanaFiltros(controller, usuarioRegistrar);
-                        ventanaFiltros.setVisible();
+                        ventanaFiltros.setVisible(true);
                         dispose();
                     }else{
                         System.out.println("Registro fallido");
