@@ -7,8 +7,10 @@ import javax.jdo.annotations.PrimaryKey;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import lombok.Getter;
-import lombok.*;
+import lombok.Setter;
 
 import java.io.Serializable;
 
@@ -22,11 +24,12 @@ public class Usuario implements Serializable{
 
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
-    @Getter private int idUsuario;
-    @Persistent @NonNull @Getter private String nombre;
-    @Persistent @NonNull @Getter private String apellido; 
-    @Persistent @NonNull @Getter private String username;
-    @Persistent @NonNull @Getter private String contrasenya;
-    @Persistent @NonNull @Getter private String email; 
+    @Getter @Setter private int idUsuario;
+    
+    @Persistent @NonNull @Getter @Setter private String nombre;
+    @Persistent @NonNull @Getter @Setter private String apellido; 
+    @Persistent @NonNull @Getter @Setter private String username;
+    @Persistent @NonNull @Getter @Setter private String contrasenya;
+    @Persistent @NonNull @Getter @Setter private String email; 
     
 }
