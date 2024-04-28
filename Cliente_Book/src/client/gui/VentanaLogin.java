@@ -104,7 +104,7 @@ public class VentanaLogin extends JFrame {
                     Usuario usuarioRespuesta = controller.comprobarUsuario(usuario, contrasenya);
                 
                     if(usuarioRespuesta != null){
-                        Filtros filtrado = new Filtros(this.controller, usuarioRespuesta);
+                        Filtros filtrado = new Filtros(controller, usuarioRespuesta);
                         filtrado.setVisible(true);
                         System.out.println("Inicio de sesión exitoso");
                     }else{

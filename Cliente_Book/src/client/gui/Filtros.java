@@ -12,6 +12,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -39,7 +41,17 @@ import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
+import java.util.List;
+import java.util.ArrayList;
+
+import client.remote.RMIServiceLocator_Book;
+import client.gui.VentanaPpal;
+
+import objetos.*;
+
 import client.controller.SMSController_Book;
+
+import objetos.Usuario;
 
 public class Filtros extends JFrame {
     private SMSController_Book controller;
