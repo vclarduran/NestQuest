@@ -106,6 +106,7 @@ public class VentanaLogin extends JFrame {
                     if(usuarioRespuesta != null){
                         VentanaFiltros filtrado = new VentanaFiltros(controller, usuarioRespuesta);
                         filtrado.setVisible(true);
+                        dispose();
                         System.out.println("Inicio de sesión exitoso");
                     }else{
                         System.out.println("Usuario no existe");

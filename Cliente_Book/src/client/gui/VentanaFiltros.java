@@ -281,6 +281,7 @@ public class VentanaFiltros extends JFrame {
 
                     VentanaAlojamientos va = new VentanaAlojamientos(u, controller, habitaciones);
                     va.setVisible(true);
+                    dispose();
                     
                 } catch (RemoteException ex) {
                     ex.printStackTrace();
