@@ -29,6 +29,7 @@ public class DbManagerNestQuest {
     static {
         try{
             persistentManagerFactory = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
+            System.out.println("pmf bien");
         }catch(Exception ex){
             System.err.println("* Exception creating PersistenceManagerFactory: " + ex.getMessage());
             throw ex;
@@ -89,7 +90,9 @@ public class DbManagerNestQuest {
     public static boolean crearUsuario(Usuario usuario){
         // ACCESO A BD
         PersistenceManager persistentManager = persistentManagerFactory.getPersistenceManager();
+        System.out.println("pm bien");
         Transaction transaction = persistentManager.currentTransaction();
+        System.out.println("transaction bien");
         boolean registradoCorrecto = false;
 
 

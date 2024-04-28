@@ -23,7 +23,10 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import java.rmi.RemoteException;
+
 import client.controller.SMSController_Book;
+import objetos.*;
 
 public class VentanaRegistro extends JFrame {
 
@@ -109,16 +112,16 @@ public class VentanaRegistro extends JFrame {
         panelRegistro.add(new JLabel("Contraseña:"), gbc);
 
         gbc.gridx = 1;
-        JPasswordField campoContraseña = new JPasswordField(20);
-        panelRegistro.add(campoContraseña, gbc);
+        JPasswordField campoContrasenya = new JPasswordField(20);
+        panelRegistro.add(campoContrasenya, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 6;
         panelRegistro.add(new JLabel("Repetir Contraseña:"), gbc);
 
         gbc.gridx = 1;
-        JPasswordField campoConfirmarContraseña = new JPasswordField(20);
-        panelRegistro.add(campoConfirmarContraseña, gbc);
+        JPasswordField campoConfirmarContrasenya = new JPasswordField(20);
+        panelRegistro.add(campoConfirmarContrasenya, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 7;
@@ -155,23 +158,43 @@ public class VentanaRegistro extends JFrame {
                 String apellido = campoApellido.getText().trim();
                 String email = campoEmail.getText().trim();
                 String usuario = campoUsuario.getText().trim();
-                String contraseña = new String(campoContraseña.getPassword()).trim();
-                String confirmarContraseña = new String(campoConfirmarContraseña.getPassword()).trim();
+                String contrasenya = new String(campoContrasenya.getPassword()).trim();
+                String confirmarContrasenya = new String(campoConfirmarContrasenya.getPassword()).trim();
+                
+                Usuario usuarioRegistrar = new Usuario(nombre, apellido, usuario, contrasenya, email);
+
 
                 // Realizar validación de los campos aquí, por ejemplo:
-                if (nombre.isEmpty() || apellido.isEmpty() || email.isEmpty() || usuario.isEmpty() || contraseña.isEmpty() || confirmarContraseña.isEmpty()) {
+                if (nombre.isEmpty() || apellido.isEmpty() || email.isEmpty() || usuario.isEmpty() || contrasenya.isEmpty() || confirmarContrasenya.isEmpty()) {
                     // Mostrar mensaje de error o realizar alguna acción adecuada
                     // Por ejemplo:
                     JOptionPane.showMessageDialog(VentanaRegistro.this, "Por favor, complete todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
-                if (!contraseña.equals(confirmarContraseña)) {
+                if (!contrasenya.equals(confirmarContrasenya)) {
                     // Las contraseñas no coinciden
                     // Mostrar mensaje de error o realizar alguna acción adecuada
                     JOptionPane.showMessageDialog(VentanaRegistro.this, "Las contraseñas no coinciden.", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
+
+                try{
+                    boolean registradoCorrecto = controller.crearUsuario(usuarioRegistrar);
+
+                    if (registradoCorrecto){
+                        //ACCEDER A LA VENTANA DE FILTROS
+                        System.out.println("Registro exitoso. "+ usuarioRegistrar);
+                        dispose();
+                    }else{
+                        System.out.println("Registro fallido");
+
+                    }
+                    
+                }catch (RemoteException ex){
+                    ex.printStackTrace();
+                }
+
             }
         });
     }

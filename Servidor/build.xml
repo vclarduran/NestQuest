@@ -11,7 +11,6 @@
 	<property name="serverClient.Name" value="client"/>
 
 	<target name="help">
-	<!-- CAMBIAR ESTO -->
 		<echo>Usage: ant [create-db-schema | server-door | server-book | delete-db-schema]</echo>
 	</target>
 
@@ -39,6 +38,7 @@
             <sysproperty key="log4j.configuration" value="file:${resources.dir}/log4j.properties"/>
             <fileset dir="${bin.dir}">
                 <include name="**/*.class"/>
+				<include name="**/**/*.class"/>
             </fileset>
    		</enhancer>
     </target>
@@ -49,6 +49,7 @@
             <sysproperty key="log4j.configuration" value="file:${resources.dir}/log4j.properties"/>
             <fileset dir="${bin.dir}">
                 <include name="**/*.class"/>
+				<include name="**/**/*.class"/>
             </fileset>
         </schematool>
     </target>
@@ -81,6 +82,7 @@
     	   	<sysproperty key="log4j.configuration" value="file:${resources.dir}/log4j.properties"/>
     	 	<fileset dir="${bin.dir}">
            		<include name="**/*.class"/>
+				<include name="**/**/*.class"/>
             </fileset>
         </schematool>
 	</target>

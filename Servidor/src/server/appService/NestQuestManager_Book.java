@@ -22,6 +22,10 @@ public class NestQuestManager_Book {
         String name = "//" + args[0] + ":" + args[1] + "/" + args[2];
 
         try {
+            // Configurar la propiedad java.rmi.server.codebase con la ruta a mis clases
+            System.setProperty("java.rmi.server.codebase", "file:./bin/objetos/");
+
+            // Crear objeto de servicio y enlazar registro RMI
             NestQuestService_Book appServiceBook = new NestQuestService_Book();
             IServerBook objServer = new ServerBook(appServiceBook);
             Registry registry = LocateRegistry.createRegistry(Integer.valueOf(args[1]));

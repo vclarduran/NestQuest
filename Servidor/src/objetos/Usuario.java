@@ -23,10 +23,10 @@ public class Usuario implements Serializable{
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.INCREMENT)
     @Getter private int idUsuario;
-    @NonNull @Getter private String nombre;
-    @NonNull @Getter private String apellido; 
-    @NonNull @Getter private String username;
-    @NonNull @Getter private String contrasenya;
-    @NonNull @Getter private String email; 
+    @Persistent @NonNull @Getter private String nombre;
+    @Persistent @NonNull @Getter private String apellido; 
+    @Persistent @NonNull @Getter private String username;
+    @Persistent @NonNull @Getter private String contrasenya;
+    @Persistent @NonNull @Getter private String email; 
     
 }

@@ -17,6 +17,9 @@ public class RMIServiceLocator_Book
     {
         try
         {
+            // Configurar la propiedad java.rmi.server.codebase con la ruta a mis clases
+            System.setProperty("java.rmi.server.codebase", "file:./bin/objetos/");
+            
             Registry registry = LocateRegistry.getRegistry(((Integer.valueOf(port))));
 			String name = "//" + ip + ":" +port + "/" + serviceName;
 			this.service = (IServerBook) registry.lookup(name);
