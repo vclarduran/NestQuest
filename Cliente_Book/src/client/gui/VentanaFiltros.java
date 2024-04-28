@@ -45,21 +45,19 @@ import java.util.List;
 import java.util.ArrayList;
 
 import client.remote.RMIServiceLocator_Book;
-import client.gui.VentanaPpal;
 
 import objetos.*;
 
 import client.controller.SMSController_Book;
 
-import objetos.Usuario;
 
-public class Filtros extends JFrame {
+public class VentanaFiltros extends JFrame {
     private SMSController_Book controller;
     private Usuario queHaceConsulta;
 
     private JPanel contentPane;
 
-    public Filtros(SMSController_Book controller, Usuario u) {
+    public VentanaFiltros(SMSController_Book controller, Usuario u) {
         this.controller = controller;
         this.queHaceConsulta = u;
 
@@ -278,25 +276,12 @@ public class Filtros extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    System.out.println("");
-                    System.out.println("ALOJAMIENTOS:");
-
-                    List<Alojamiento> alojamientos = new ArrayList<>();
-                    alojamientos = controller.getAlojamientos();
-
-                    for (Alojamiento al : alojamientos) {
-                        System.out.println(al.getNombre());
-                    }
-
-                    System.out.println("");
-                    System.out.println("HABITACIONES:");
-
                     List<Habitacion> habitaciones = new ArrayList<>();
                     habitaciones = controller.getHabitaciones();
 
-                    for (Habitacion hab : habitaciones) {
-                        System.out.println(hab.getNombre());
-                    }
+                    VentanaAlojamientos va = new VentanaAlojamientos(u, controller, habitaciones);
+                    va.setVisible(true);
+                    
                 } catch (RemoteException ex) {
                     ex.printStackTrace();
                 }
