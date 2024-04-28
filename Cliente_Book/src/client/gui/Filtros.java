@@ -54,7 +54,7 @@ public class Filtros extends JFrame {
         JPanel panelPrincipal = new JPanel(new BorderLayout());
 
         JPanel panelIcono = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        ImageIcon icono = new ImageIcon("src/gui/Imagenes/Logo.png");
+        ImageIcon icono = new ImageIcon("src/client/gui/imagenes/Logo.png");
         Image imagen = icono.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
         ImageIcon iconoRedimensionado = new ImageIcon(imagen);
         JLabel labelImagen = new JLabel(iconoRedimensionado);
@@ -62,7 +62,7 @@ public class Filtros extends JFrame {
         panelIcono.add(labelImagen);
 
         JPanel panelIcono1 = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        ImageIcon icono1 = new ImageIcon("src/gui/Imagenes/Persona.png");
+        ImageIcon icono1 = new ImageIcon("src/client/gui/imagenes/Persona.png");
         Image imagen1 = icono1.getImage().getScaledInstance(70, 70, Image.SCALE_SMOOTH);
         ImageIcon iconoRedimensionado1 = new ImageIcon(imagen1);
         JButton botonIcono = new JButton(iconoRedimensionado1);
