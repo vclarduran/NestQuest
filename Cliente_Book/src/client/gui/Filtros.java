@@ -47,10 +47,10 @@ public class Filtros extends JFrame {
 
     private JPanel contentPane;
 
+    public Filtros(SMSController_Book controller, Usuario u) {
+        this.controller = controller;
+        this.queHaceConsulta = u;
 
-    public Filtros(SMSController_Book controller) {
-        this.controller=controller;
-        
         setTitle("Filtros");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(900, 700);
@@ -109,20 +109,20 @@ public class Filtros extends JFrame {
         JDatePanelImpl datePanel1 = new JDatePanelImpl(model1, p1);
         datePanel1.setPreferredSize(new Dimension(150, 180));
         JDatePickerImpl datePicker1 = new JDatePickerImpl(datePanel1, null);
-        
+
         JLabel labelFechaSeleccionada = new JLabel("                    ");
         panelLogin.add(labelFechaSeleccionada, gbc);
         datePanel1.addActionListener(e -> {
             Date selectedDate = (Date) datePanel1.getModel().getValue();
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); // Formato de fecha deseado
-            String dateString = (selectedDate != null) ? sdf.format(selectedDate) : ""; // Evita NPE si no se selecciona ninguna fecha
+            String dateString = (selectedDate != null) ? sdf.format(selectedDate) : ""; // Evita NPE si no se selecciona
+                                                                                        // ninguna fecha
             labelFechaSeleccionada.setText("                                        " + dateString);
-            
+
         });
         gbc.gridx = 1;
         gbc.anchor = GridBagConstraints.EAST;
         panelLogin.add(datePicker1, gbc);
-     
 
         JLabel labelDatePicker2 = new JLabel("Fecha salida:");
         labelDatePicker2.setFont(new Font("Arial", Font.PLAIN, 16));
@@ -136,15 +136,16 @@ public class Filtros extends JFrame {
         JDatePanelImpl datePanel2 = new JDatePanelImpl(model2, p2);
         datePanel2.setPreferredSize(new Dimension(150, 180));
         JDatePickerImpl datePicker2 = new JDatePickerImpl(datePanel2, null);
-        
+
         JLabel labelFechaSeleccionada2 = new JLabel("                    ");
         panelLogin.add(labelFechaSeleccionada2, gbc);
         datePanel2.addActionListener(e -> {
             Date selectedDate1 = (Date) datePanel2.getModel().getValue();
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); // Formato de fecha deseado
-            String dateString = (selectedDate1 != null) ? sdf.format(selectedDate1) : ""; // Evita NPE si no se selecciona ninguna fecha
+            String dateString = (selectedDate1 != null) ? sdf.format(selectedDate1) : ""; // Evita NPE si no se
+                                                                                          // selecciona ninguna fecha
             labelFechaSeleccionada2.setText("                                        " + dateString);
-            
+
         });
         gbc.gridx = 1;
         gbc.anchor = GridBagConstraints.EAST;
@@ -173,7 +174,7 @@ public class Filtros extends JFrame {
         gbc.anchor = GridBagConstraints.WEST;
         panelLogin.add(labelTransporte, gbc);
 
-        String[] opcionesTransporte = {"Coche", "Tren", "Avión"};
+        String[] opcionesTransporte = { "Coche", "Tren", "Avión" };
         JComboBox<String> comboBoxTransporte = new JComboBox<>(opcionesTransporte);
         comboBoxTransporte.setSelectedIndex(-1);
         gbc.gridx = 1;
@@ -195,7 +196,7 @@ public class Filtros extends JFrame {
         gbc.gridx = 1;
         gbc.anchor = GridBagConstraints.EAST;
         panelLogin.add(spinner1, gbc);
-        
+
         JLabel labelSlider = new JLabel("Precio minimo: ");
         labelSlider.setFont(new Font("Arial", Font.PLAIN, 16));
         gbc.gridx = 0;
@@ -208,14 +209,15 @@ public class Filtros extends JFrame {
         slider.setMinorTickSpacing(10);
         slider.setPaintTicks(true);
         slider.setPaintLabels(true);
-        Dimension sliderSize = new Dimension(250, slider.getPreferredSize().height); // Ajusta el tamaño horizontal del JSlider
+        Dimension sliderSize = new Dimension(250, slider.getPreferredSize().height); // Ajusta el tamaño horizontal del
+                                                                                     // JSlider
         slider.setPreferredSize(sliderSize);
         gbc.gridx = 1;
         gbc.anchor = GridBagConstraints.EAST;
         panelLogin.add(slider, gbc);
-        
+
         JLabel labelValorSlider2 = new JLabel("0");
-        gbc.gridy= 9;
+        gbc.gridy = 9;
         gbc.anchor = GridBagConstraints.EAST;
         panelLogin.add(labelValorSlider2, gbc);
 
@@ -226,7 +228,7 @@ public class Filtros extends JFrame {
                 labelValorSlider2.setText(String.valueOf(valor));
             }
         });
-        
+
         JLabel labelSlider1 = new JLabel("Precio maximo: ");
         labelSlider1.setFont(new Font("Arial", Font.PLAIN, 16));
         gbc.gridx = 0;
@@ -239,14 +241,15 @@ public class Filtros extends JFrame {
         slider1.setMinorTickSpacing(10);
         slider1.setPaintTicks(true);
         slider1.setPaintLabels(true);
-        Dimension sliderSize1 = new Dimension(250, slider1.getPreferredSize().height); // Ajusta el tamaño horizontal del JSlider
+        Dimension sliderSize1 = new Dimension(250, slider1.getPreferredSize().height); // Ajusta el tamaño horizontal
+                                                                                       // del JSlider
         slider1.setPreferredSize(sliderSize1);
         gbc.gridx = 1;
         gbc.anchor = GridBagConstraints.EAST;
         panelLogin.add(slider1, gbc);
-        
+
         JLabel labelValorSlider1 = new JLabel("0");
-        gbc.gridy= 11;
+        gbc.gridy = 11;
         gbc.anchor = GridBagConstraints.EAST;
         panelLogin.add(labelValorSlider1, gbc);
 
@@ -257,20 +260,46 @@ public class Filtros extends JFrame {
                 labelValorSlider1.setText(String.valueOf(valor));
             }
         });
-        
+
         JButton button = new JButton("Comprobar");
-        
-        button.setPreferredSize(new Dimension(150, 30)); // Establece un tamaño más pequeño
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    System.out.println("");
+                    System.out.println("ALOJAMIENTOS:");
+
+                    List<Alojamiento> alojamientos = new ArrayList<>();
+                    alojamientos = controller.getAlojamientos();
+
+                    for (Alojamiento al : alojamientos) {
+                        System.out.println(al.getNombre());
+                    }
+
+                    System.out.println("");
+                    System.out.println("HABITACIONES:");
+
+                    List<Habitacion> habitaciones = new ArrayList<>();
+                    habitaciones = controller.getHabitaciones();
+
+                    for (Habitacion hab : habitaciones) {
+                        System.out.println(hab.getNombre());
+                    }
+                } catch (RemoteException ex) {
+                    ex.printStackTrace();
+                }
+
+            }
+        });
+
+        button.setPreferredSize(new Dimension(150, 30));
         gbc.gridy = 12;
-       
-       
+
         button.setPreferredSize(new Dimension(200, 40));
         gbc.anchor = GridBagConstraints.CENTER;
         panelLogin.add(button, gbc);
-        
-        
-        
-        setLocationRelativeTo(null); 
+
+        setLocationRelativeTo(null);
         getContentPane().add(panelPrincipal);
     }
 }

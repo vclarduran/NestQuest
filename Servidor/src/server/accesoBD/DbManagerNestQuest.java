@@ -84,7 +84,8 @@ public class DbManagerNestQuest {
             persistentManager.close();
         }
         
-        return usuarioDevuelto;
+        return new Usuario();
+        //return usuarioDevuelto;
     }
 
     public static boolean crearUsuario(Usuario usuario){

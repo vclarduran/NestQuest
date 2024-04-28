@@ -11,6 +11,7 @@ import client.gui.VentanaPpal;
 
 import objetos.*;
 
+
 public class SMSController_Book
 {
     private RMIServiceLocator_Book rsl = null;
@@ -22,29 +23,7 @@ public class SMSController_Book
         ventana.setVisible(true);
 
         this.rsl = new RMIServiceLocator_Book();
-        this.rsl.setService(args[0],args[1],args[2]);
-
-        //////////////////////////EJEMPLO RECORRIDO getAlojamientos() por consola //////////////////////
-
-        System.out.println("");
-		System.out.println("ALOJAMIENTOS:");
-
-        List<Alojamiento> alojamientos = new ArrayList<>();
-        alojamientos = this.getAlojamientos();
-
-        for (Alojamiento al : alojamientos){
-            System.out.println(al.getNombre());
-        }
-
-        System.out.println("");
-		System.out.println("HABITACIONES:");
-
-        List<Habitacion> habitaciones = new ArrayList<>();
-        habitaciones = this.getHabitaciones();
-
-        for (Habitacion hab : habitaciones){
-            System.out.println(hab.getNombre());
-        }
+        this.rsl.setService(args[0],args[1],args[2]); 
     
 	}
 

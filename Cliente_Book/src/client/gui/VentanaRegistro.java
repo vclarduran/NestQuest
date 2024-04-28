@@ -28,6 +28,7 @@ import java.rmi.RemoteException;
 import client.controller.SMSController_Book;
 import objetos.*;
 
+
 public class VentanaRegistro extends JFrame {
 
     private SMSController_Book controller;
