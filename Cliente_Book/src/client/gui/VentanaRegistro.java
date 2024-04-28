@@ -1,4 +1,4 @@
-package gui;
+package client.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -22,6 +22,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import client.controller.SMSController_Book;
 
 public class VentanaRegistro extends JFrame {
 
