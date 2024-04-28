@@ -12,8 +12,11 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Insets;
+import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Properties;
 
 import javax.swing.Box;
@@ -40,6 +43,7 @@ import client.controller.SMSController_Book;
 
 public class Filtros extends JFrame {
     private SMSController_Book controller;
+    private Usuario queHaceConsulta;
 
     private JPanel contentPane;
 
